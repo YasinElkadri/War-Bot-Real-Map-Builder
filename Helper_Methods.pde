@@ -1,18 +1,34 @@
 public Territory findTerritory(String name) {
 
   for (Territory t : territories) {
-    //println(t.name);
-    //println(t.name, name);
+ 
     if (t.name.equals(name)) { return t; }
   }
-  for (Territory t : territories) {if (t.name.contains("Kampong")) println(t);}
+
   println("HUGE ERROR! COULD NOT FIND", name);
   return null;
 
 }
 
+public void redrawMap() {
+  mapImage = blankImage.copy();
+  for (PVector pix : currTerr.coordinates) {
+    ArrayList<PVector> flood = getFloodPixels(pix);
+    fill(mapImage, flood, color(255, 0, 0));
+  }
+  for (Territory terr : currTerr.neighbours) {
+    for (PVector pix : terr.coordinates) {
+      ArrayList<PVector> flood = getFloodPixels(pix);
+      fill(mapImage, flood, color(0, 0, 255));
+    }
+  }
+  shouldRedraw = true;
+}
 
-public ArrayList<PVector> getFloodPixels(PVector startPixel) {
+
+
+// not my code
+public ArrayList<PVector> getFloodPixels(PVector startPixel) { 
   ArrayList<PVector> flood = new ArrayList<>();
   ArrayList<PVector> toCheck = new ArrayList<>();
 
@@ -38,7 +54,7 @@ public ArrayList<PVector> getFloodPixels(PVector startPixel) {
   visited[startX][startY] = true;
 
   while (!toCheck.isEmpty()) {
-    PVector current = toCheck.remove(toCheck.size() - 1); // stack-style DFS for performance
+    PVector current = toCheck.remove(toCheck.size() - 1); 
     int x = int(current.x);
     int y = int(current.y);
 
@@ -50,7 +66,6 @@ public ArrayList<PVector> getFloodPixels(PVector startPixel) {
     if (abs(r - startR) < 150 && abs(g - startG) < 150 && abs(b - startB) < 150) {
       flood.add(current);
 
-      // Check 4-connected neighbors
       int[][] offsets = { {1,0}, {-1,0}, {0,1}, {0,-1} };
       for (int[] offset : offsets) {
         int nx = x + offset[0];
@@ -78,7 +93,6 @@ public void fill(PImage image, ArrayList<PVector> pix, color colour) {
     int x = int(p.x);
     int y = int(p.y);
     
-    // Fast bounds check to avoid crashes
     if (x >= 0 && x < w && y >= 0 && y < h) {
       image.pixels[y * w + x] = colour;
     }
@@ -95,88 +109,49 @@ void mousePressed() {
 
   if (mouseButton == LEFT && create.isVisible()) {
     currTerr.coordinates.add(new PVector(x, y));
-    for (PVector pix : currTerr.coordinates) {
-      ArrayList<PVector> flood = getFloodPixels(pix);
-      fill(mapImage, flood, color(255, 0, 0));
-    }
-    for (Territory terr : currTerr.neighbours) {
-      for (PVector pix : terr.coordinates) {
-        ArrayList<PVector> flood = getFloodPixels(pix);
-        fill(mapImage, flood, color(0, 0, 255));
-      }
-    }
-    shouldRedraw = true;
+
+    redrawMap();
+
     String currentText = "";
     for (PVector pix : currTerr.coordinates) currentText += "\n" + int(pix.x) + ", " + int(pix.y);
     create_coordinateList.setText(currentText);
   }
   
   else if (mouseButton == RIGHT && create.isVisible()) {
-    println("AAAA");
+
     ArrayList<PVector> flood1 = getFloodPixels( new PVector(x, y));
     ArrayList<PVector> rmL = new ArrayList<PVector>();
     for (PVector pix : currTerr.coordinates) {
       if (containsPVector(flood1, pix)) rmL.add(pix);
     }
-    println(rmL);
+
     for (PVector rm : rmL) currTerr.coordinates.remove(rm);
     
-    mapImage = blankImage.copy();
-    for (PVector pix : currTerr.coordinates) {
-      ArrayList<PVector> flood = getFloodPixels(pix);
-      fill(mapImage, flood, color(255, 0, 0));
-    }
-    for (Territory terr : currTerr.neighbours) {
-      for (PVector pix : terr.coordinates) {
-        ArrayList<PVector> flood = getFloodPixels(pix);
-        fill(mapImage, flood, color(0, 0, 255));
-      }
-    }
-    shouldRedraw = true;
+    redrawMap();
+
     String currentText = "";
     for (PVector pix : currTerr.coordinates) currentText += "\n" + int(pix.x) + ", " + int(pix.y);
     create_coordinateList.setText(currentText);
   }
   else if (mouseButton == LEFT && edit.isVisible()) {
     currTerr.coordinates.add(new PVector(x, y));
-    for (PVector pix : currTerr.coordinates) {
-      ArrayList<PVector> flood = getFloodPixels(pix);
-      fill(mapImage, flood, color(255, 0, 0));
-    }
-    for (Territory terr : currTerr.neighbours) {
-      for (PVector pix : terr.coordinates) {
-        ArrayList<PVector> flood = getFloodPixels(pix);
-        fill(mapImage, flood, color(0, 0, 255));
-      }
-    }
-    shouldRedraw = true;
+    redrawMap();
+
     String currentText = "";
     for (PVector pix : currTerr.coordinates) currentText += "\n" + int(pix.x) + ", " + int(pix.y);
     edit_coordinateList.setText(currentText);
   }
   
   else if (mouseButton == RIGHT && edit.isVisible()) {
-    println("AAAA");
     ArrayList<PVector> flood1 = getFloodPixels( new PVector(x, y));
     ArrayList<PVector> rmL = new ArrayList<PVector>();
     for (PVector pix : currTerr.coordinates) {
       if (containsPVector(flood1, pix)) rmL.add(pix);
     }
-    println(rmL);
     for (PVector rm : rmL) currTerr.coordinates.remove(rm);
     
-    mapImage = blankImage.copy();
-    for (PVector pix : currTerr.coordinates) {
-      ArrayList<PVector> flood = getFloodPixels(pix);
-      fill(mapImage, flood, color(255, 0, 0));
-    }
-    for (Territory terr : currTerr.neighbours) {
-      for (PVector pix : terr.coordinates) {
-        ArrayList<PVector> flood = getFloodPixels(pix);
-        fill(mapImage, flood, color(0, 0, 255));
-      }
-    }
-    shouldRedraw = true;
+      redrawMap();
+
     String currentText = "";
     for (PVector pix : currTerr.coordinates) currentText += "\n" + int(pix.x) + ", " + int(pix.y);
     edit_coordinateList.setText(currentText);
@@ -191,17 +166,9 @@ void mousePressed() {
     for (Territory neighbouring : currTerr.neighbours) if (neighbouring.name.equals(t.name)) return;
     currTerr.neighbours.add(t);
     t.neighbours.add(currTerr);
-    for (PVector pix : currTerr.coordinates) {
-      ArrayList<PVector> flood = getFloodPixels(pix);
-      fill(mapImage, flood, color(255, 0, 0));
-    }
-    for (Territory terr : currTerr.neighbours) {
-      for (PVector pix : terr.coordinates) {
-        ArrayList<PVector> flood = getFloodPixels(pix);
-        fill(mapImage, flood, color(0, 0, 255));
-      }
-    }
-    shouldRedraw = true;
+
+    redrawMap();
+
     String currentText = "";
     for (Territory terr : currTerr.neighbours) currentText += "\n" + terr.name;
     neighbourList.setText(currentText);
@@ -216,17 +183,9 @@ void mousePressed() {
     if (t == null) return;
     if (t.name.equals(currTerr.name)) return;
     currTerr = t;
-    for (PVector pix : currTerr.coordinates) {
-       ArrayList<PVector> flood = getFloodPixels(pix);
-       fill(mapImage, flood, color(255, 0, 0));
-     }
-     for (Territory terr : currTerr.neighbours) {
-       for (PVector pix : terr.coordinates) {
-         ArrayList<PVector> flood = getFloodPixels(pix);
-         fill(mapImage, flood, color(0, 0, 255));
-       }
-     }
-   shouldRedraw = true;
+
+   redrawMap();
+
     String currentText = "";
     for (Territory terr : currTerr.neighbours) currentText += "\n" + terr.name;
     neighbourList.setText(currentText);
@@ -235,14 +194,13 @@ void mousePressed() {
   
   
     else if (mouseButton == RIGHT && neighbour.isVisible()) {
-      println("AAAAAAAAAAAAAAAAAA");
+      
       mapImage = blankImage.copy();
       ArrayList<PVector> floodPixels = getFloodPixels(new PVector(x, y));
       Territory t = findTerritory(floodPixels);
-      println(t);
+
       if (t == null) return;
       if (t.name.equals(currTerr.name)) return;
-      println("aaaa");
       boolean found = false;
       for (Territory neighbouring : currTerr.neighbours) {
           if (neighbouring.name.equals(t.name)) {
@@ -256,17 +214,9 @@ void mousePressed() {
       }      
       currTerr.neighbours.remove(t);
       t.neighbours.remove(currTerr);
-      for (PVector pix : currTerr.coordinates) {
-        ArrayList<PVector> flood = getFloodPixels(pix);
-        fill(mapImage, flood, color(255, 0, 0));
-      }
-      for (Territory terr : currTerr.neighbours) {
-        for (PVector pix : terr.coordinates) {
-          ArrayList<PVector> flood = getFloodPixels(pix);
-          fill(mapImage, flood, color(0, 0, 255));
-        }
-      }
-    shouldRedraw = true;
+      
+       redrawMap();
+
     String currentText = "";
     for (Territory terr : currTerr.neighbours) currentText += "\n" + terr.name;
     neighbourList.setText(currentText);
@@ -275,33 +225,26 @@ void mousePressed() {
   
   
   
-    else if (mouseButton == CENTER && edit.isVisible()) {
+  else if (mouseButton == CENTER && edit.isVisible()) {
     mapImage = blankImage.copy();
     ArrayList<PVector> floodPixels = getFloodPixels(new PVector(x, y));
     Territory t = findTerritory(floodPixels);
     if (t == null) return;
     if (t.name.equals(currTerr.name)) return;
     currTerr = t;
-    for (PVector pix : currTerr.coordinates) {
-       ArrayList<PVector> flood = getFloodPixels(pix);
-       fill(mapImage, flood, color(255, 0, 0));
-     }
-     for (Territory terr : currTerr.neighbours) {
-       for (PVector pix : terr.coordinates) {
-         ArrayList<PVector> flood = getFloodPixels(pix);
-         fill(mapImage, flood, color(0, 0, 255));
-       }
-     }
-   shouldRedraw = true;
+    
+    redrawMap();
+
+    
     String currentText = "";
     for (PVector pix : currTerr.coordinates) currentText += "\n" + int(pix.x) + ", " + int(pix.y);
     edit_coordinateList.setText(currentText);
-  edit1.setText(currTerr.name);
-  edit3.setText(currTerr.nation);
-  edit5.setText(str(currTerr.population));
-  edit7.setSelected(currTerr.terrain - 1);
-  edit9.setText(str(currTerr.coal));
-  edit11.setText(str(currTerr.oil));
+    edit1.setText(currTerr.name);
+    edit3.setText(currTerr.nation);
+    edit5.setText(str(currTerr.population));
+    edit7.setSelected(currTerr.terrain - 1);
+    edit9.setText(str(currTerr.coal));
+    edit11.setText(str(currTerr.oil));
   }
 }
 
@@ -319,9 +262,9 @@ Territory findTerritory(ArrayList<PVector> flooded) {
   for (Territory t : territories) {
     for (PVector coord : t.coordinates) {
       if (containsPVector(flooded, coord)) {
-        return t; // Found overlap
+        return t; 
       }
     }
   }
-  return null; // No overlap found
+  return null;
 }

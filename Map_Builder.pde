@@ -1,8 +1,6 @@
 import g4p_controls.*;
 
 String mapName = "blank_map.png";
-int mapWidth = 500; //change to automatically find
-int mapHeight = 500; //change to automatically find
 PImage blankImage;
 PImage mapImage;
 ArrayList<Territory> territories = new ArrayList<>();
@@ -46,7 +44,6 @@ void setup() {
     territories.add(t);
   }
   
-  //println(territories);
 
   for (int i = 0; i < strings.length; i++) {
         String[] parts = strings[i].split("\t");

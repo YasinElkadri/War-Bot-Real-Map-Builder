@@ -67,19 +67,11 @@ public void menu_editTerritory(GButton source, GEvent event) { //_CODE_:menu2:79
   edit9.setText(str(currTerr.coal));
   edit11.setText(str(currTerr.oil));
   
-  mapImage = blankImage.copy();
-  for (PVector pix : currTerr.coordinates) {
-    ArrayList<PVector> flood = getFloodPixels(pix);
-    fill(mapImage, flood, color(255, 0, 0));
-  }
-  for (Territory terr : currTerr.neighbours) {
-    for (PVector pix : terr.coordinates) {
-      ArrayList<PVector> flood = getFloodPixels(pix);
-      fill(mapImage, flood, color(0, 0, 255));
-    }
-  }
-  shouldRedraw = true;
-  
+
+
+   redrawMap();
+
+ 
   if (currTerr.coordinates.size() == 0) edit_coordinateList.setText("none");
   else {
     String currentText = "";
@@ -123,18 +115,7 @@ public void menu_registerNeighbours(GButton source, GEvent event) { //_CODE_:men
   territoryList = territoryNames.toArray(territoryList);
   neighbour1.setItems(territoryList, 0);
   currTerr = territories.get(0).copy();
-  mapImage = blankImage.copy();
-  for (PVector pix : currTerr.coordinates) {
-    ArrayList<PVector> flood = getFloodPixels(pix);
-    fill(mapImage, flood, color(255, 0, 0));
-  }
-  for (Territory terr : currTerr.neighbours) {
-    for (PVector pix : terr.coordinates) {
-      ArrayList<PVector> flood = getFloodPixels(pix);
-      fill(mapImage, flood, color(0, 0, 255));
-    }
-  }
-  shouldRedraw = true;
+  redrawMap();
   String currentText = "";
   for (Territory t : currTerr.neighbours) currentText += "\n" + t.name;
   neighbourList.setText(currentText);  
@@ -144,9 +125,8 @@ public void menu_paintAll(GButton source, GEvent event) { //_CODE_:menu4:617171:
   for (int i = 0; i < territories.size(); i++) {
     
     color c = lerpColor(color(255, 0, 0), color(0, 0, 255), float(i) / territories.size());
-    ////println(c);
     for (PVector pix : territories.get(i).coordinates) {
-      ////println(pix);
+
       ArrayList<PVector> floodPixels = getFloodPixels(pix);
       fill(mapImage, floodPixels, c);
     
@@ -240,20 +220,10 @@ synchronized public void win_draw3(PApplet appc, GWinData data) { //_CODE_:neigh
 public void neighbour_territorySelected(GDropList source, GEvent event) { //_CODE_:neighbour1:754508:
   lastButton = "None";
   currTerr = findTerritory(source.getSelectedText()).copy();
-  ////println(currTerr);
-  ////println(territories);
-  mapImage = blankImage.copy();
-  for (PVector pix : currTerr.coordinates) {
-    ArrayList<PVector> flood = getFloodPixels(pix);
-    fill(mapImage, flood, color(255, 0, 0));
-  }
-  for (Territory terr : currTerr.neighbours) {
-    for (PVector pix : terr.coordinates) {
-      ArrayList<PVector> flood = getFloodPixels(pix);
-      fill(mapImage, flood, color(0, 0, 255));
-    }
-  }
-  shouldRedraw = true;
+
+
+  redrawMap();
+
 
   neighbourList.setText("");
   if (currTerr.neighbours.size() == 0) return;
@@ -267,7 +237,6 @@ public void neighbour_save(GButton source, GEvent event) { //_CODE_:neighbour6:9
   menu.setVisible(true);
   neighbour.setVisible(false);
   for (Territory territory : territories) {
-    //////println(territory);
     String s = "";
     s += territory.name + "\t" + territory.nation + "\t" + territory.population + "\t[";
     for (Territory neighbouring : territory.neighbours) s += "'" + neighbouring.name + "',";
@@ -342,7 +311,6 @@ public void edit_save(GButton source, GEvent event) { //_CODE_:edit14:539957:
   menu.setVisible(true);
   edit.setVisible(false);
   for (Territory territory : territories) {
-    //////println(territory);
     String s = "";
     s += territory.name + "\t" + territory.nation + "\t" + territory.population + "\t[";
     for (Territory neighbouring : territory.neighbours) s += "'" + neighbouring.name + "',";
@@ -366,7 +334,6 @@ public void edit_save(GButton source, GEvent event) { //_CODE_:edit14:539957:
 public void edit_cancel(GButton source, GEvent event) { //_CODE_:edit15:378981:
   lastButton = "None";
   territories.clear();
-  println(territoryBackup.get(0));
   territories = (ArrayList)territoryBackup.clone();
   currTerr = null;
   menu.setVisible(true);
