@@ -1,5 +1,5 @@
 # War Bot Real Map Builder
-A simple map builder for Kushagra Pant's ['War Bot Real'.](https://kushagra-pant.github.io/projects/warbot.html_) Streamlines a usually overly complex process to allow anyone to design a map to be used.
+A simple map builder for Kushagra Pant's ['War Bot Real'.](https://kushagra-pant.github.io/projects/warbot.html) Streamlines a usually overly complex process to allow anyone to design a map to be used.
 
 The code isn't very elegant right now, and barely works, but I assure you, that will be fixed in a future update! (See: 'Never')
 
