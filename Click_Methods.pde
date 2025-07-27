@@ -232,5 +232,73 @@ void editNatMapPressed() {
     redrawNationMap();
   }
 }
-void createFormMapPressed() {}
-void editFormMapPressed() {}
+void createFormMapPressed() {
+   
+  int x = mouseX;
+  int y = mouseY;
+  
+  if (mouseButton == LEFT) {
+    mapImage = blankImage.copy();
+    ArrayList<PVector> floodPixels = getFloodPixels(new PVector(x, y));
+    Territory t = findTerritory(floodPixels);
+    if (t == null) return;
+    for (Territory terr : currForm.territories) if (terr.name.equals(t.name)) return;
+    currForm.territories.add(t);
+
+    redrawFormableMap();
+    
+  } else if (mouseButton == RIGHT) {
+    mapImage = blankImage.copy();
+    ArrayList<PVector> floodPixels = getFloodPixels(new PVector(x, y));
+    Territory t = findTerritory(floodPixels);
+
+    if (t == null) return;
+    boolean found = false;
+    for (Territory terr : currForm.territories) {
+        if (terr.name.equals(t.name)) {
+            found = true;
+            break;
+        }
+    }
+    if (!found) {
+        return;
+    }      
+    currForm.territories.remove(t);
+    
+    redrawFormableMap();
+  }
+}
+void editFormMapPressed() {   
+  int x = mouseX;
+  int y = mouseY;
+  
+  if (mouseButton == LEFT) {
+    mapImage = blankImage.copy();
+    ArrayList<PVector> floodPixels = getFloodPixels(new PVector(x, y));
+    Territory t = findTerritory(floodPixels);
+    if (t == null) return;
+    for (Territory terr : currForm.territories) if (terr.name.equals(t.name)) return;
+    currForm.territories.add(t);
+
+    redrawFormableMap();
+    
+  } else if (mouseButton == RIGHT) {
+    mapImage = blankImage.copy();
+    ArrayList<PVector> floodPixels = getFloodPixels(new PVector(x, y));
+    Territory t = findTerritory(floodPixels);
+
+    if (t == null) return;
+    boolean found = false;
+    for (Territory terr : currForm.territories) {
+        if (terr.name.equals(t.name)) {
+            found = true;
+            break;
+        }
+    }
+    if (!found) {
+        return;
+    }      
+    currForm.territories.remove(t);
+    
+    redrawFormableMap();
+  }}

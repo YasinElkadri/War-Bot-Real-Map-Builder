@@ -180,7 +180,7 @@ void saveToText() {
   for (Formable f : formables) {
     String s = f.name + "\t\t\t[";
     for (Territory t : f.territories) s += "\'" + t.name + "\',";
-    if (f.territories.size() > 0) s.substring(0, s.length() - 1);
+    if (f.territories.size() > 0) s = s.substring(0, s.length() - 1);
     s += "]";
     stringsToSaveForm.add(s);
   }

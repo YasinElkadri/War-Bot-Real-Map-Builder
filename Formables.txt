@@ -1,0 +1,1 @@
+Super Nation			['Lashio','Keng Tung','Taunggyi','Kachin','Hkamti','Imphal','Dimapur','Nagaon','Itanagar','Dibang','Putao','Tinsukia','Phongsaly','Chiang Mai','Sainyabuli','Xam Nua','Hanoi','Song Da','Bac Kan','Quang Ninh','Nanning','Hezhou','Shaoguan','Jieyang','Guangzhou','Bulungan','Bontang','Balikpapan','Kutai','Barito','Amuntai','Banjarmasin','Sampit']

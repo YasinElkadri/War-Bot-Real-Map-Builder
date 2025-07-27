@@ -164,11 +164,26 @@ public void menu_editNation(GButton source, GEvent event) { //_CODE_:menu6:71839
 } //_CODE_:menu6:718391:
 
 public void menu_createFormable(GButton source, GEvent event) { //_CODE_:menu7:776227:
-  println("button2 - GButton >> GEvent." + event + " @ " + millis());
+  formCreate.setVisible(true);
+  menu.setVisible(false);
+  currForm = new Formable();
+  formCreate1.setText("");
+  redrawFormableMap();
 } //_CODE_:menu7:776227:
 
 public void menu_editFormable(GButton source, GEvent event) { //_CODE_:menu8:355996:
-  println("button3 - GButton >> GEvent." + event + " @ " + millis());
+  formEdit.setVisible(true);
+  menu.setVisible(false);
+  if (formables.size() < 1) return;
+  currForm = formables.get(0);
+  redrawFormableMap();
+  formEdit2.setText(currForm.name);
+  
+  ArrayList<String> formNames = new ArrayList<>();
+  for (Formable f : formables) formNames.add(f.name);
+  String[] formList = new String[formNames.size()];
+  formList = formNames.toArray(formList);
+  formEdit_formDroplist.setItems(formList, 0);
 } //_CODE_:menu8:355996:
 
 synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:create:390304:
@@ -390,9 +405,57 @@ synchronized public void win_draw7(PApplet appc, GWinData data) { //_CODE_:formC
   appc.background(230);
 } //_CODE_:formCreate:714961:
 
+public void formCreate_nameChanged(GTextField source, GEvent event) { //_CODE_:formCreate1:417432:
+  currForm.name = source.getText();
+} //_CODE_:formCreate1:417432:
+
+public void formCreate_save(GButton source, GEvent event) { //_CODE_:formCreate2:221327:
+  formables.add(currForm);
+  currForm = null;
+  formCreate.setVisible(false);
+  menu.setVisible(true);
+  saveToText();
+  mapImage = blankImage.copy();
+  shouldRedraw = true;
+} //_CODE_:formCreate2:221327:
+
+public void formCreate_cancel(GButton source, GEvent event) { //_CODE_:formCreate3:767503:
+  currForm = null;
+  formCreate.setVisible(false);
+  menu.setVisible(true);
+  saveToText();
+  mapImage = blankImage.copy();
+  shouldRedraw = true;
+} //_CODE_:formCreate3:767503:
+
 synchronized public void win_draw8(PApplet appc, GWinData data) { //_CODE_:formEdit:652021:
   appc.background(230);
 } //_CODE_:formEdit:652021:
+
+public void formEdit_changeFormable(GDropList source, GEvent event) { //_CODE_:formEdit_formDroplist:203794:
+  currForm = formables.get(formEdit_formDroplist.getSelectedIndex());
+  formEdit2.setText(currForm.name);
+  redrawFormableMap();
+} //_CODE_:formEdit_formDroplist:203794:
+
+public void formEdit_nameChanged(GTextField source, GEvent event) { //_CODE_:formEdit2:503387:
+  currForm.name = source.getText();
+
+ ArrayList<String> formNames = new ArrayList<>();
+  for (Formable f : formables) formNames.add(f.name);
+  String[] formList = new String[formNames.size()];
+  formList = formNames.toArray(formList);
+  formEdit_formDroplist.setItems(formList, formEdit_formDroplist.getSelectedIndex());
+} //_CODE_:formEdit2:503387:
+
+public void formEdit_save(GButton source, GEvent event) { //_CODE_:formEdit3:460409:
+  currForm = null;
+  formEdit.setVisible(false);
+  menu.setVisible(true);
+  saveToText();
+  mapImage = blankImage.copy();
+  shouldRedraw = true;
+} //_CODE_:formEdit3:460409:
 
 
 
@@ -631,14 +694,43 @@ public void createGUI(){
   formCreate.noLoop();
   formCreate.setActionOnClose(G4P.EXIT_APP);
   formCreate.addDrawHandler(this, "win_draw7");
-  label2 = new GLabel(formCreate, 20, 20, 80, 20);
-  label2.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
-  label2.setText("Name: ");
-  label2.setOpaque(false);
+  formCreate0 = new GLabel(formCreate, 20, 20, 80, 20);
+  formCreate0.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  formCreate0.setText("Name: ");
+  formCreate0.setOpaque(false);
+  formCreate1 = new GTextField(formCreate, 110, 20, 120, 15, G4P.SCROLLBARS_NONE);
+  formCreate1.setOpaque(true);
+  formCreate1.addEventHandler(this, "formCreate_nameChanged");
+  formCreate2 = new GButton(formCreate, 20, 70, 80, 30);
+  formCreate2.setText("Save");
+  formCreate2.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  formCreate2.addEventHandler(this, "formCreate_save");
+  formCreate3 = new GButton(formCreate, 140, 70, 80, 30);
+  formCreate3.setText("Cancel");
+  formCreate3.setLocalColorScheme(GCScheme.RED_SCHEME);
+  formCreate3.addEventHandler(this, "formCreate_cancel");
   formEdit = GWindow.getWindow(this, "Edit Formables", 0, 0, 240, 120, JAVA2D);
   formEdit.noLoop();
   formEdit.setActionOnClose(G4P.EXIT_APP);
   formEdit.addDrawHandler(this, "win_draw8");
+  formEdit0 = new GLabel(formEdit, 20, 10, 80, 20);
+  formEdit0.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  formEdit0.setText("Formable:");
+  formEdit0.setOpaque(false);
+  formEdit_formDroplist = new GDropList(formEdit, 110, 10, 120, 80, 3, 10);
+  formEdit_formDroplist.setItems(loadStrings("list_203794"), 0);
+  formEdit_formDroplist.addEventHandler(this, "formEdit_changeFormable");
+  formEdit1 = new GLabel(formEdit, 20, 40, 80, 20);
+  formEdit1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  formEdit1.setText("Name:");
+  formEdit1.setOpaque(false);
+  formEdit2 = new GTextField(formEdit, 110, 40, 120, 15, G4P.SCROLLBARS_NONE);
+  formEdit2.setOpaque(true);
+  formEdit2.addEventHandler(this, "formEdit_nameChanged");
+  formEdit3 = new GButton(formEdit, 80, 70, 80, 30);
+  formEdit3.setText("Save");
+  formEdit3.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  formEdit3.addEventHandler(this, "formEdit_save");
   menu.loop();
   create.loop();
   neighbour.loop();
@@ -714,5 +806,13 @@ GButton natEdit2;
 GLabel label1; 
 GDropList natEdit_natDropdown; 
 GWindow formCreate;
-GLabel label2; 
+GLabel formCreate0; 
+GTextField formCreate1; 
+GButton formCreate2; 
+GButton formCreate3; 
 GWindow formEdit;
+GLabel formEdit0; 
+GDropList formEdit_formDroplist; 
+GLabel formEdit1; 
+GTextField formEdit2; 
+GButton formEdit3; 
