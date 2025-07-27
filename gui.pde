@@ -333,6 +333,8 @@ synchronized public void win_draw5(PApplet appc, GWinData data) { //_CODE_:natCr
 
 public void natCreate_changeName(GTextField source, GEvent event) { //_CODE_:natCreate1:948151:
   currNat.name = source.getText();
+  
+  for (Territory t : currNat.territories) t.nation = currNat.name;
 } //_CODE_:natCreate1:948151:
 
 public void natCreate_save(GButton source, GEvent event) { //_CODE_:natCreate2:860755:
@@ -359,6 +361,14 @@ synchronized public void win_draw6(PApplet appc, GWinData data) { //_CODE_:natEd
 
 public void natEdit_changeName(GTextField source, GEvent event) { //_CODE_:natEdit1:275356:
   currNat.name = source.getText();
+  
+  for (Territory t : currNat.territories) t.nation = currNat.name;
+  
+  ArrayList<String> nationNames = new ArrayList<>();
+  for (Nation n : nations) nationNames.add(n.name);
+  String[] nationList = new String[nationNames.size()];
+  nationList = nationNames.toArray(nationList);
+  natEdit_natDropdown.setItems(nationList, natEdit_natDropdown.getSelectedIndex());
 } //_CODE_:natEdit1:275356:
 
 public void natEdit_save(GButton source, GEvent event) { //_CODE_:natEdit2:593824:
@@ -621,6 +631,10 @@ public void createGUI(){
   formCreate.noLoop();
   formCreate.setActionOnClose(G4P.EXIT_APP);
   formCreate.addDrawHandler(this, "win_draw7");
+  label2 = new GLabel(formCreate, 20, 20, 80, 20);
+  label2.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label2.setText("Name: ");
+  label2.setOpaque(false);
   formEdit = GWindow.getWindow(this, "Edit Formables", 0, 0, 240, 120, JAVA2D);
   formEdit.noLoop();
   formEdit.setActionOnClose(G4P.EXIT_APP);
@@ -700,4 +714,5 @@ GButton natEdit2;
 GLabel label1; 
 GDropList natEdit_natDropdown; 
 GWindow formCreate;
+GLabel label2; 
 GWindow formEdit;

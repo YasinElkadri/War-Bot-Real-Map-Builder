@@ -76,7 +76,7 @@ void setup() {
       String name = parts[0];
       ArrayList<Territory> terrs = new ArrayList<>();
       for (Territory t : territories) {
-        if (t.name.equals(name)) terrs.add(t);
+        if (t.nation.equals(name)) terrs.add(t);
       }
       Nation n = new Nation(name, terrs);
       nations.add(n);

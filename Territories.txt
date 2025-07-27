@@ -1,5 +1,5 @@
 Dhaka	Bangladesh	21396955	['Noakhali','Khulna','Sylhet','Rangpur']	[]	[(42,86)]	[ADD_SEAS_HERE]	0	PIXELS:247	1	[]	0.0	0.0
-Bangkok	Paaa	15746197	['Sa Kaeo','Sawan','Ratchasima','Kanchanaburi','Prachuap Khiri Khan','Pattaya']	[]	[(168,220)]	[ADD_SEAS_HERE]	0	PIXELS:268	1	[]	0.0	0.0
+Bangkok	Paaaaaaaaa	15746197	['Sa Kaeo','Sawan','Ratchasima','Kanchanaburi','Prachuap Khiri Khan','Pattaya']	[]	[(168,220)]	[ADD_SEAS_HERE]	0	PIXELS:268	1	[]	0.0	0.0
 Manila	Philippines	14849247	['Legazpi','Casiguran','Tarlac']	[]	[(426,220)]	[ADD_SEAS_HERE]	0	PIXELS:165	1	[]	0.0	0.0
 Saigon	Vietnam	14027917	['Phnom Penh','Can Tho','Phan Thiet']	[]	[(240,270)]	[ADD_SEAS_HERE]	0	PIXELS:215	1	[]	1.0	0.0
 Guangzhou	Canton	12753981	['Zhanjiang','Shaoguan','Jieyang','Hong Kong']	[]	[(325,101)]	[ADD_SEAS_HERE]	0	PIXELS:348	1	[]	0.0	0.0
@@ -7,14 +7,14 @@ Kuala Lumpur	Malaysia	11189994	['Ipoh','Johor','Kuantan']	[]	[(188,363)]	[ADD_SE
 Jakarta	Java	10654071	['Indramayu','Bandung']	[]	[(251,496)]	[ADD_SEAS_HERE]	0	PIXELS:179	1	[]	0.0	0.0
 Surabaya	Java	8934090	['Yogyakarta','Malang']	[]	[(314,505)]	[ADD_SEAS_HERE]	0	PIXELS:328	1	[]	0.0	0.0
 Hanoi	Vietnam	8818004	['Thanh Hoa','Song Da','Xam Nua','Bac Kan','Quang Ninh']	[]	[(240,127)]	[ADD_SEAS_HERE]	0	PIXELS:508	1	[]	1.0	0.0
-Yangon	Paaa	8557541	['Thaton','Pathein']	[]	[(117,186)]	[ADD_SEAS_HERE]	0	PIXELS:425	1	[]	0.0	0.0
+Yangon	Paaaaaaaaa	8557541	['Thaton','Pathein']	[]	[(117,186)]	[ADD_SEAS_HERE]	0	PIXELS:425	1	[]	0.0	0.0
 Medan	Sumatra	8488216	['Aceh','Pekanburu','Sidempuan','Tapaktuan']	[]	[(164,376)]	[ADD_SEAS_HERE]	0	PIXELS:364	1	[]	0.0	1.0
 Chittagong	Bangladesh	8306802	['Mizoram','Tripura','Noakhali','Rakhine']	[]	[(71,102)]	[ADD_SEAS_HERE]	0	PIXELS:184	1	[]	0.0	0.0
 Phnom Penh	Cambodia	7645146	['Kaoh Kong','Bat Dambag','Siem Reap','Kampong Cham','Phan Thiet','Saigon','Can Tho']	[]	[(219,263)]	[ADD_SEAS_HERE]	0	PIXELS:444	1	[]	0.0	0.0
 West Visayas	Philippines	7634694	[]	[]	[(450,272)]	[ADD_SEAS_HERE]	0	PIXELS:321	1	[]	0.0	0.0
 Bandung	Java	7366250	['Jakarta','Indramayu','Tegal']	[]	[(251,506)]	[ADD_SEAS_HERE]	0	PIXELS:225	1	[]	0.0	0.0
 Palembang	Sumatra	7164073	['Jambi','Prabumulih','Lampung']	[]	[(230,451)]	[ADD_SEAS_HERE]	0	PIXELS:323	1	[]	0.0	1.0
-Mandalay	Paaa	6362849	['Kayah','Naypyidaw','Chin','Lashio','Kachin','Hkamti','Imphal']	[]	[(108,101)]	[ADD_SEAS_HERE]	0	PIXELS:806	1	[]	0.0	0.0
+Mandalay	Paaaaaaaaa	6362849	['Kayah','Naypyidaw','Chin','Lashio','Kachin','Hkamti','Imphal']	[]	[(108,101)]	[ADD_SEAS_HERE]	0	PIXELS:806	1	[]	0.0	0.0
 Hong Kong	Canton	6315532	['Guangzhou']	[]	[(342,107)]	[ADD_SEAS_HERE]	0	PIXELS:21	1	[]	0.0	0.0
 Singapore	Singapore	5936131	['Johor']	[]	[(212,392)]	[ADD_SEAS_HERE]	0	PIXELS:24	1	[]	0.0	0.0
 Lampung	Sumatra	5781292	['Bengkulu','Prabumulih','Palembang']	[]	[(226,477)]	[ADD_SEAS_HERE]	0	PIXELS:439	1	[]	0.0	0.0
@@ -25,7 +25,7 @@ Makassar	Sulawesi	5115865	['Mamuju','Kendari','Palu']	[]	[(409,460)]	[ADD_SEAS_H
 East Visayas	Philippines	4908714	[]	[]	[(473,256)]	[ADD_SEAS_HERE]	0	PIXELS:306	1	[]	0.0	0.0
 West Tenggara	Java	4813060	[]	[]	[(384,525)]	[ADD_SEAS_HERE]	0	PIXELS:328	1	[]	0.0	0.0
 Siem Reap	Cambodia	4605914	['Phnom Penh','Pakse','Ratchathani','Bat Dambag','Ratchasima','Kampong Cham','Stung Tren']	[]	[(218,230)]	[ADD_SEAS_HERE]	0	PIXELS:455	1	[]	0.0	0.0
-Vientiane	Paaa	4587459	['Xam Nua','Loei','Sakhon Nakhon','Sainyabuli','Paksan']	[]	[(201,167)]	[ADD_SEAS_HERE]	0	PIXELS:112	1	[]	0.0	0.0
+Vientiane	Paaaaaaaaa	4587459	['Xam Nua','Loei','Sakhon Nakhon','Sainyabuli','Paksan']	[]	[(201,167)]	[ADD_SEAS_HERE]	0	PIXELS:112	1	[]	0.0	0.0
 Bali	Java	4414864	[]	[]	[(352,521)]	[ADD_SEAS_HERE]	0	PIXELS:36	1	[]	0.0	0.0
 Pekanburu	Sumatra	4380114	['Medan','Sidempuan','Padang','Jambi']	[]	[(183,400)]	[ADD_SEAS_HERE]	0	PIXELS:861	1	[]	0.0	1.0
 Thanh Hoa	Vietnam	4339479	['Dong Hoi','Paksan','Xam Nua','Hanoi']	[]	[(229,152)]	[ADD_SEAS_HERE]	0	PIXELS:378	1	[]	0.0	0.0
@@ -34,7 +34,7 @@ Can Tho	Vietnam	4062319	['Phnom Penh','Saigon']	[]	[(233,282)]	[ADD_SEAS_HERE]	0
 Jieyang	Canton	4031323	['Guangzhou','Shaoguan']	[]	[(365,82)]	[ADD_SEAS_HERE]	0	PIXELS:657	1	[]	0.0	0.0
 Sylhet	Bangladesh	4019370	['Noakhali','Dhaka','Rangpur','Guwahati','Tripura','Dimapur']	[]	[(62,74)]	[ADD_SEAS_HERE]	0	PIXELS:313	1	[]	0.0	0.0
 Yogyakarta	Java	3926333	['Tegal','Surabaya','Malang']	[]	[(300,511)]	[ADD_SEAS_HERE]	0	PIXELS:262	1	[]	0.0	0.0
-Ratchasima	Paaa	3908047	['Bangkok','Ratchathani','Siem Reap','Bat Dambag','Sa Kaeo','Sawan','Kohn Kaen']	[]	[(197,213)]	[ADD_SEAS_HERE]	0	PIXELS:271	1	[]	0.0	0.0
+Ratchasima	Paaaaaaaaa	3908047	['Bangkok','Ratchathani','Siem Reap','Bat Dambag','Sa Kaeo','Sawan','Kohn Kaen']	[]	[(197,213)]	[ADD_SEAS_HERE]	0	PIXELS:271	1	[]	0.0	0.0
 Zhanjiang	Canton	3816908	['Nanning','Hezhou','Shaoguan','Guangzhou']	[]	[(313,106)]	[ADD_SEAS_HERE]	0	PIXELS:724	1	[]	0.0	1.0
 Quy Nhon	Vietnam	3613165	['Buon Ma Thuot','Khan Hoa','Quang Ngai']	[]	[(275,226)]	[ADD_SEAS_HERE]	0	PIXELS:218	1	[]	0.0	0.0
 Padang	Sumatra	3596818	['Pekanburu','Sidempuan','Bengkulu','Jambi']	[]	[(173,409)]	[ADD_SEAS_HERE]	0	PIXELS:540	1	[]	0.0	0.0
@@ -55,13 +55,13 @@ Nagaon	Assam	2807638	['Dimapur','Imphal','Tinsukia','Itanagar','Guwahati']	[]	[(
 Ratchathani	Thailand	2768645	['Pakse','Roi Et','Ratchasima','Siem Reap']	[]	[(224,215)]	[ADD_SEAS_HERE]	0	PIXELS:288	1	[]	0.0	0.0
 Kedah	Malaysia	2733769	['Trang','Ipoh','Terengganu','Pattani']	[]	[(175,340)]	[ADD_SEAS_HERE]	0	PIXELS:129	1	[]	0.0	0.0
 Kendari	Sulawesi	2716796	['Makassar','Palu']	[]	[(435,452)]	[ADD_SEAS_HERE]	0	PIXELS:526	1	[]	0.0	0.0
-Pathein	Paaa	2712116	['Kayah','Thaton','Yangon','Pyay','Naypyidaw']	[]	[(111,168)]	[ADD_SEAS_HERE]	0	PIXELS:608	1	[]	0.0	0.0
+Pathein	Paaaaaaaaa	2712116	['Kayah','Thaton','Yangon','Pyay','Naypyidaw']	[]	[(111,168)]	[ADD_SEAS_HERE]	0	PIXELS:608	1	[]	0.0	0.0
 Manado	Sulawesi	2703401	['Palu']	[]	[(435,399)]	[ADD_SEAS_HERE]	0	PIXELS:953	1	[]	0.0	0.0
-Chiang Mai	Paaa	2646564	['Phongsaly','Keng Tung','Pai','Sainyabuli','Phitsanulok']	[]	[(166,159)]	[ADD_SEAS_HERE]	0	PIXELS:728	1	[]	0.0	0.0
-Kohn Kaen	Paaa	2635144	['Sawan','Ratchasima','Phitsanulok','Loei','Roi Et']	[]	[(189,197)]	[ADD_SEAS_HERE]	0	PIXELS:363	1	[]	0.0	0.0
+Chiang Mai	Paaaaaaaaa	2646564	['Phongsaly','Keng Tung','Pai','Sainyabuli','Phitsanulok']	[]	[(166,159)]	[ADD_SEAS_HERE]	0	PIXELS:728	1	[]	0.0	0.0
+Kohn Kaen	Paaaaaaaaa	2635144	['Sawan','Ratchasima','Phitsanulok','Loei','Roi Et']	[]	[(189,197)]	[ADD_SEAS_HERE]	0	PIXELS:363	1	[]	0.0	0.0
 Kampong Cham	Cambodia	2563359	['Phnom Penh','Phan Thiet','Siem Reap','Stung Tren']	[]	[(235,245)]	[ADD_SEAS_HERE]	0	PIXELS:323	1	[]	0.0	0.0
 Taipei	Taiwan	2516970	['Taichung','Taitung']	[]	[(429,76)]	[ADD_SEAS_HERE]	0	PIXELS:157	1	[]	0.0	0.0
-Mawlamyine	Paaa	2515205	['Kanchanaburi','Tanintharyi','Thaton']	[]	[(143,194)]	[ADD_SEAS_HERE]	0	PIXELS:244	1	[]	0.0	0.0
+Mawlamyine	Paaaaaaaaa	2515205	['Kanchanaburi','Tanintharyi','Thaton']	[]	[(143,194)]	[ADD_SEAS_HERE]	0	PIXELS:244	1	[]	0.0	0.0
 Tegal	Java	2400144	['Indramayu','Bandung','Yogyakarta']	[]	[(283,511)]	[ADD_SEAS_HERE]	0	PIXELS:131	1	[]	0.0	0.0
 Pattaya	Thailand	2344392	['Bangkok','Bangkok','Sa Kaeo','Bat Dambag','Kaoh Kong']	[]	[(187,236)]	[ADD_SEAS_HERE]	0	PIXELS:222	1	[]	0.0	0.0
 Jambi	Sumatra	2332655	['Pekanburu','Padang','Prabumulih','Bengkulu','Palembang']	[]	[(209,428)]	[ADD_SEAS_HERE]	0	PIXELS:547	1	[]	0.0	1.0
@@ -74,7 +74,7 @@ Songkhla	Thailand	2121241	['Phuket','Pattani','Trang']	[]	[(164,297)]	[ADD_SEAS_
 Cagayan De Oro	Philippines	2104264	['General Santos','Davao','Butuan']	[]	[(465,304)]	[ADD_SEAS_HERE]	0	PIXELS:394	1	[]	0.0	0.0
 Stung Tren	Cambodia	2047038	['Buon Ma Thuot','Pakse','Siem Reap','Kampong Cham']	[]	[(242,230)]	[ADD_SEAS_HERE]	0	PIXELS:479	1	[]	0.0	0.0
 West Timor	Java	2009963	['East Timor']	[]	[(467,536)]	[ADD_SEAS_HERE]	0	PIXELS:194	1	[]	0.0	0.0
-Taunggyi	Paaa	2000179	['Keng Tung','Kayah','Pai','Lashio']	[]	[(145,135)]	[ADD_SEAS_HERE]	0	PIXELS:532	1	[]	0.0	0.0
+Taunggyi	Paaaaaaaaa	2000179	['Keng Tung','Kayah','Pai','Lashio']	[]	[(145,135)]	[ADD_SEAS_HERE]	0	PIXELS:532	1	[]	0.0	0.0
 Shaoguan	Canton	1915296	['Zhanjiang','Guangzhou','Jieyang','Hezhou']	[]	[(335,80)]	[ADD_SEAS_HERE]	0	PIXELS:577	1	[]	0.0	0.0
 Baguio	Philippines	1906400	['Tarlac','Casiguran','Dagupan','Santiago','Laoag']	[]	[(427,190)]	[ADD_SEAS_HERE]	0	PIXELS:100	1	[]	0.0	0.0
 Roi Et	Thailand	1899966	['Ratchathani','Kohn Kaen','Nam Theum','Sakhon Nakhon','Loei']	[]	[(221,201)]	[ADD_SEAS_HERE]	0	PIXELS:348	1	[]	0.0	0.0
@@ -83,18 +83,18 @@ Indramayu	Java	1813933	['Jakarta','Bandung','Tegal']	[]	[(267,497)]	[ADD_SEAS_HE
 Tuguegarao	Philippines	1813227	['Santiago','Laoag']	[]	[(436,172)]	[ADD_SEAS_HERE]	0	PIXELS:142	1	[]	0.0	0.0
 Song Da	Vietnam	1800642	['Hanoi','Bac Kan','Xam Nua','Phongsaly']	[]	[(218,116)]	[ADD_SEAS_HERE]	0	PIXELS:515	1	[]	0.0	0.0
 Kaoh Kong	Cambodia	1794561	['Pattaya','Bat Dambag','Phnom Penh']	[]	[(208,249)]	[ADD_SEAS_HERE]	0	PIXELS:173	1	[]	0.0	0.0
-Sainyabuli	Paaa	1717420	['Xam Nua','Vientiane','Loei','Phongsaly','Chiang Mai']	[]	[(185,162)]	[ADD_SEAS_HERE]	0	PIXELS:303	1	[]	0.0	0.0
+Sainyabuli	Paaaaaaaaa	1717420	['Xam Nua','Vientiane','Loei','Phongsaly','Chiang Mai']	[]	[(185,162)]	[ADD_SEAS_HERE]	0	PIXELS:303	1	[]	0.0	0.0
 Kachin	Myanmar	1713037	['Mandalay','Hkamti','Putao','Lashio']	[]	[(133,68)]	[ADD_SEAS_HERE]	0	PIXELS:806	1	[]	1.0	0.0
 Dagupan	Philippines	1700021	['Tarlac','Baguio']	[]	[(417,199)]	[ADD_SEAS_HERE]	0	PIXELS:72	1	[]	0.0	0.0
 Sakhon Nakhon	Thailand	1671150	['Roi Et','Nam Theum','Vientiane','Loei','Paksan']	[]	[(209,178)]	[ADD_SEAS_HERE]	0	PIXELS:376	1	[]	0.0	0.0
-Tanintharyi	Paaa	1614560	['Kanchanaburi','Prachuap Khiri Khan','Phuket','Mawlamyine']	[]	[(151,227)]	[ADD_SEAS_HERE]	0	PIXELS:380	1	[]	0.0	1.0
+Tanintharyi	Paaaaaaaaa	1614560	['Kanchanaburi','Prachuap Khiri Khan','Phuket','Mawlamyine']	[]	[(151,227)]	[ADD_SEAS_HERE]	0	PIXELS:380	1	[]	0.0	1.0
 Legazpi	Philippines	1601514	['Manila']	[]	[(455,232)]	[ADD_SEAS_HERE]	0	PIXELS:143	1	[]	0.0	0.0
 Hezhou	Canton	1587176	['Nanning','Zhanjiang','Shaoguan']	[]	[(292,84)]	[ADD_SEAS_HERE]	0	PIXELS:1364	1	[]	0.0	0.0
 Terengganu	Malaysia	1571952	['Kedah','Pattani','Ipoh','Kuantan']	[]	[(197,338)]	[ADD_SEAS_HERE]	0	PIXELS:303	1	[]	0.0	1.0
-Sawan	Paaa	1558202	['Bangkok','Ratchasima','Kohn Kaen','Phitsanulok','Kanchanaburi']	[]	[(164,205)]	[ADD_SEAS_HERE]	0	PIXELS:405	1	[]	0.0	0.0
+Sawan	Paaaaaaaaa	1558202	['Bangkok','Ratchasima','Kohn Kaen','Phitsanulok','Kanchanaburi']	[]	[(164,205)]	[ADD_SEAS_HERE]	0	PIXELS:405	1	[]	0.0	0.0
 Santiago	Philippines	1512854	['Baguio','Laoag','Tuguegarao','Casiguran']	[]	[(435,192)]	[ADD_SEAS_HERE]	0	PIXELS:118	1	[]	0.0	0.0
-Lashio	Paaa	1505996	['Keng Tung','Kayah','Taunggyi','Mandalay','Kachin']	[]	[(136,94)]	[ADD_SEAS_HERE]	0	PIXELS:836	1	[]	0.0	0.0
-Thaton	Paaa	1505160	['Kanchanaburi','Kayah','Pai','Mawlamyine','Pathein','Yangon']	[]	[(131,175)]	[ADD_SEAS_HERE]	0	PIXELS:211	1	[]	0.0	0.0
+Lashio	Paaaaaaaaa	1505996	['Keng Tung','Kayah','Taunggyi','Mandalay','Kachin']	[]	[(136,94)]	[ADD_SEAS_HERE]	0	PIXELS:836	1	[]	0.0	0.0
+Thaton	Paaaaaaaaa	1505160	['Kanchanaburi','Kayah','Pai','Mawlamyine','Pathein','Yangon']	[]	[(131,175)]	[ADD_SEAS_HERE]	0	PIXELS:211	1	[]	0.0	0.0
 Hue	Vietnam	1432482	['Quang Ngai','Nam Theum','Pakse','Dong Hoi']	[]	[(254,186)]	[ADD_SEAS_HERE]	0	PIXELS:151	1	[]	0.0	0.0
 Kota Kinabalu	Malaysia	1413667	['Miri','Sandakan']	[]	[(367,337)]	[ADD_SEAS_HERE]	0	PIXELS:337	1	[]	0.0	0.0
 Mindoro	Philippines	1408037	[]	[]	[(428,238)]	[ADD_SEAS_HERE]	0	PIXELS:158	1	[]	0.0	0.0
@@ -104,38 +104,38 @@ Quang Ninh	Vietnam	1395610	['Hanoi','Bac Kan','Nanning']	[]	[(250,125)]	[ADD_SEA
 Riau	Sumatra	1391892	[]	[]	[(245,368)]	[ADD_SEAS_HERE]	0	PIXELS:47	1	[]	0.0	1.0
 East Timor	East Timor	1384000	['West Timor']	[]	[(481,529)]	[ADD_SEAS_HERE]	0	PIXELS:225	1	[]	0.0	0.0
 Kuching	Malaysia	1357980	['Singkawang','Sintang','Sibu']	[]	[(300,394)]	[ADD_SEAS_HERE]	0	PIXELS:93	1	[]	0.0	0.0
-Xam Nua	Paaa	1343156	['Thanh Hoa','Hanoi','Song Da','Paksan','Vientiane','Sainyabuli','Phongsaly']	[]	[(215,142)]	[ADD_SEAS_HERE]	0	PIXELS:448	1	[]	0.0	0.0
+Xam Nua	Paaaaaaaaa	1343156	['Thanh Hoa','Hanoi','Song Da','Paksan','Vientiane','Sainyabuli','Phongsaly']	[]	[(215,142)]	[ADD_SEAS_HERE]	0	PIXELS:448	1	[]	0.0	0.0
 Bengkulu	Sumatra	1330466	['Padang','Jambi','Prabumulih','Lampung']	[]	[(187,442)]	[ADD_SEAS_HERE]	0	PIXELS:408	1	[]	0.0	0.0
 Butuan	Philippines	1311575	['Cagayan De Oro','Davao']	[]	[(485,295)]	[ADD_SEAS_HERE]	0	PIXELS:197	1	[]	1.0	0.0
 Tinsukia	Assam	1309786	['Imphal','Hkamti','Putao','Dibang','Nagaon','Itanagar']	[]	[(117,34)]	[ADD_SEAS_HERE]	0	PIXELS:285	1	[]	1.0	1.0
 Sanya	Hainan	1308517	['Haikou']	[]	[(287,152)]	[ADD_SEAS_HERE]	0	PIXELS:281	1	[]	0.0	1.0
-Phitsanulok	Paaa	1295736	['Sawan','Kanchanaburi','Kohn Kaen','Loei','Chiang Mai','Pai']	[]	[(175,187)]	[ADD_SEAS_HERE]	0	PIXELS:440	1	[]	0.0	0.0
-Kanchanaburi	Paaa	1291677	['Bangkok','Sawan','Prachuap Khiri Khan','Tanintharyi','Mawlamyine','Thaton','Pai','Phitsanulok']	[]	[(155,216)]	[ADD_SEAS_HERE]	0	PIXELS:440	1	[]	0.0	0.0
+Phitsanulok	Paaaaaaaaa	1295736	['Sawan','Kanchanaburi','Kohn Kaen','Loei','Chiang Mai','Pai']	[]	[(175,187)]	[ADD_SEAS_HERE]	0	PIXELS:440	1	[]	0.0	0.0
+Kanchanaburi	Paaaaaaaaa	1291677	['Bangkok','Sawan','Prachuap Khiri Khan','Tanintharyi','Mawlamyine','Thaton','Pai','Phitsanulok']	[]	[(155,216)]	[ADD_SEAS_HERE]	0	PIXELS:440	1	[]	0.0	0.0
 Palawan	Philippines	1211661	[]	[]	[(402,274)]	[ADD_SEAS_HERE]	0	PIXELS:146	1	[]	0.0	0.0
-Naypyidaw	Paaa	1209969	['Kayah','Pyay','Pathein','Rakhine','Chin','Mandalay']	[]	[(114,133)]	[ADD_SEAS_HERE]	0	PIXELS:516	1	[]	0.0	0.0
+Naypyidaw	Paaaaaaaaa	1209969	['Kayah','Pyay','Pathein','Rakhine','Chin','Mandalay']	[]	[(114,133)]	[ADD_SEAS_HERE]	0	PIXELS:516	1	[]	0.0	0.0
 Paksan	Laos	1144526	['Nam Theum','Dong Hoi','Thanh Hoa','Xam Nua','Sakhon Nakhon','Vientiane']	[]	[(220,159)]	[ADD_SEAS_HERE]	0	PIXELS:210	1	[]	0.0	0.0
-Phongsaly	Paaa	1143346	['Song Da','Xam Nua','Sainyabuli','Chiang Mai','Keng Tung']	[]	[(193,128)]	[ADD_SEAS_HERE]	0	PIXELS:736	1	[]	0.0	0.0
+Phongsaly	Paaaaaaaaa	1143346	['Song Da','Xam Nua','Sainyabuli','Chiang Mai','Keng Tung']	[]	[(193,128)]	[ADD_SEAS_HERE]	0	PIXELS:736	1	[]	0.0	0.0
 Banjarmasin	Kalimantan	1121931	['Sampit','Barito','Amuntai']	[]	[(345,455)]	[ADD_SEAS_HERE]	0	PIXELS:115	1	[]	1.0	0.0
 Mizoram	Assam	1102452	['Chin','Chittagong','Rakhine','Tripura','Imphal']	[]	[(78,87)]	[ADD_SEAS_HERE]	0	PIXELS:299	1	[]	0.0	0.0
 Pattani	Thailand	1078596	['Songkhla','Kedah','Terengganu']	[]	[(185,328)]	[ADD_SEAS_HERE]	0	PIXELS:123	1	[]	0.0	0.0
-Trang	Paaa	1068118	['Phuket','Songkhla','Kedah']	[]	[(160,309)]	[ADD_SEAS_HERE]	0	PIXELS:156	1	[]	0.0	0.0
+Trang	Paaaaaaaaa	1068118	['Phuket','Songkhla','Kedah']	[]	[(160,309)]	[ADD_SEAS_HERE]	0	PIXELS:156	1	[]	0.0	0.0
 Guwahati	Assam	1005510	['Sylhet','Rangpur','Dimapur','Nagaon']	[]	[(64,66)]	[ADD_SEAS_HERE]	0	PIXELS:586	1	[]	1.0	0.0
-Pyay	Paaa	1004530	['Naypyidaw','Rakhine','Pathein']	[]	[(106,151)]	[ADD_SEAS_HERE]	0	PIXELS:217	1	[]	0.0	0.0
+Pyay	Paaaaaaaaa	1004530	['Naypyidaw','Rakhine','Pathein']	[]	[(106,151)]	[ADD_SEAS_HERE]	0	PIXELS:217	1	[]	0.0	0.0
 Ipoh	Malaysia	984396	['Kedah','Terengganu','Kuantan','Kuala Lumpur']	[]	[(178,348)]	[ADD_SEAS_HERE]	0	PIXELS:291	1	[]	0.0	0.0
-Loei	Paaa	929365	['Kohn Kaen','Roi Et','Vientiane','Phitsanulok','Sainyabuli','Sakhon Nakhon']	[]	[(193,176)]	[ADD_SEAS_HERE]	0	PIXELS:358	1	[]	0.0	0.0
+Loei	Paaaaaaaaa	929365	['Kohn Kaen','Roi Et','Vientiane','Phitsanulok','Sainyabuli','Sakhon Nakhon']	[]	[(193,176)]	[ADD_SEAS_HERE]	0	PIXELS:358	1	[]	0.0	0.0
 Pontianak	Kalimantan	922872	['Ketapang','Sintang','Singkawang','Barito']	[]	[(297,423)]	[ADD_SEAS_HERE]	0	PIXELS:587	1	[]	0.0	0.0
 Balikpapan	Kalimantan	921042	['Amuntai','Bulungan','Bontang','Kutai']	[]	[(373,415)]	[ADD_SEAS_HERE]	0	PIXELS:427	1	[]	0.0	1.0
 Kuantan	Malaysia	913137	['Terengganu','Ipoh','Johor','Kuala Lumpur']	[]	[(204,364)]	[ADD_SEAS_HERE]	0	PIXELS:281	1	[]	0.0	0.0
 Bangka	Sumatra	889532	[]	[]	[(242,444)]	[ADD_SEAS_HERE]	0	PIXELS:106	1	[]	0.0	1.0
 Prachuap Khiri Khan	Thailand	830352	['Bangkok','Kanchanaburi','Tanintharyi','Phuket']	[]	[(163,236)]	[ADD_SEAS_HERE]	0	PIXELS:226	1	[]	0.0	0.0
-Sa Kaeo	Paaa	810490	['Bangkok','Pattaya','Bat Dambag','Ratchasima']	[]	[(186,225)]	[ADD_SEAS_HERE]	0	PIXELS:159	1	[]	0.0	0.0
-Keng Tung	Paaa	804286	['Phongsaly','Chiang Mai','Taunggyi','Lashio']	[]	[(160,127)]	[ADD_SEAS_HERE]	0	PIXELS:402	1	[]	0.0	0.0
+Sa Kaeo	Paaaaaaaaa	810490	['Bangkok','Pattaya','Bat Dambag','Ratchasima']	[]	[(186,225)]	[ADD_SEAS_HERE]	0	PIXELS:159	1	[]	0.0	0.0
+Keng Tung	Paaaaaaaaa	804286	['Phongsaly','Chiang Mai','Taunggyi','Lashio']	[]	[(160,127)]	[ADD_SEAS_HERE]	0	PIXELS:402	1	[]	0.0	0.0
 Sarawak Interior	Malaysia	787343	['Sintang','Sibu','Miri','Bintulu','Bulungan']	[]	[(336,386)]	[ADD_SEAS_HERE]	0	PIXELS:320	1	[]	1.0	0.0
 Nam Theum	Laos	765581	['Pakse','Roi Et','Sakhon Nakhon','Paksan','Dong Hoi','Hue']	[]	[(234,188)]	[ADD_SEAS_HERE]	0	PIXELS:500	1	[]	1.0	0.0
 Sandakan	Malaysia	742800	['Miri','Tarakan','Kota Kinabalu']	[]	[(370,347)]	[ADD_SEAS_HERE]	0	PIXELS:432	1	[]	0.0	0.0
 Laoag	Philippines	700702	['Baguio','Santiago','Tuguegarao']	[]	[(424,178)]	[ADD_SEAS_HERE]	0	PIXELS:207	1	[]	0.0	0.0
 Sidempuan	Sumatra	695601	['Pekanburu','Medan','Tapaktuan','Padang']	[]	[(157,389)]	[ADD_SEAS_HERE]	0	PIXELS:304	1	[]	0.0	1.0
-Phuket	Paaa	662597	['Prachuap Khiri Khan','Tanintharyi','Trang','Songkhla']	[]	[(152,286)]	[ADD_SEAS_HERE]	0	PIXELS:291	1	[]	0.0	0.0
+Phuket	Paaaaaaaaa	662597	['Prachuap Khiri Khan','Tanintharyi','Trang','Songkhla']	[]	[(152,286)]	[ADD_SEAS_HERE]	0	PIXELS:291	1	[]	0.0	0.0
 Miri	Malaysia	614817	['Sarawak Interior','Bandar Seri Begawan','Bintulu','Bulungan','Tarakan','Sandakan','Kota Kinabalu']	[]	[(348,361)]	[ADD_SEAS_HERE]	0	PIXELS:414	1	[]	0.0	1.0
 Hkamti	Myanmar	605046	['Mandalay','Imphal','Kachin','Putao','Tinsukia']	[]	[(106,72)]	[ADD_SEAS_HERE]	0	PIXELS:626	1	[]	0.0	0.0
 Casiguran	Philippines	601109	['Manila','Tarlac','Baguio','Santiago']	[]	[(429,199)]	[ADD_SEAS_HERE]	0	PIXELS:68	1	[]	0.0	0.0
@@ -151,10 +151,10 @@ Dimapur	Assam	351099	['Tripura','Nagaon','Guwahati','Imphal','Sylhet']	[]	[(83,5
 Bac Kan	Vietnam	329138	['Hanoi','Quang Ninh','Nanning','Song Da']	[]	[(235,112)]	[ADD_SEAS_HERE]	0	PIXELS:340	1	[]	0.0	0.0
 Tarakan	Kalimantan	322920	['Miri','Bulungan','Bontang','Sandakan']	[]	[(375,359)]	[ADD_SEAS_HERE]	0	PIXELS:175	1	[]	0.0	1.0
 Sampit	Kalimantan	321521	['Banjarmasin','Barito','Ketapang']	[]	[(318,449)]	[ADD_SEAS_HERE]	0	PIXELS:177	1	[]	1.0	0.0
-Kayah	Paaa	300018	['Taunggyi','Lashio','Mandalay','Naypyidaw','Pathein','Thaton','Pai']	[]	[(129,139)]	[ADD_SEAS_HERE]	0	PIXELS:501	1	[]	0.0	0.0
+Kayah	Paaaaaaaaa	300018	['Taunggyi','Lashio','Mandalay','Naypyidaw','Pathein','Thaton','Pai']	[]	[(129,139)]	[ADD_SEAS_HERE]	0	PIXELS:501	1	[]	0.0	0.0
 Singkawang	Kalimantan	296480	['Pontianak','Sintang','Kuching']	[]	[(284,401)]	[ADD_SEAS_HERE]	0	PIXELS:437	1	[]	0.0	0.0
 Bontang	Kalimantan	256444	['Bulungan','Tarakan','Balikpapan']	[]	[(373,377)]	[ADD_SEAS_HERE]	0	PIXELS:438	1	[]	0.0	1.0
-Pai	Paaa	251124	['Kanchanaburi','Kayah','Thaton','Taunggyi','Chiang Mai','Phitsanulok']	[]	[(147,158)]	[ADD_SEAS_HERE]	0	PIXELS:473	1	[]	0.0	0.0
+Pai	Paaaaaaaaa	251124	['Kanchanaburi','Kayah','Thaton','Taunggyi','Chiang Mai','Phitsanulok']	[]	[(147,158)]	[ADD_SEAS_HERE]	0	PIXELS:473	1	[]	0.0	0.0
 Amuntai	Kalimantan	229863	['Banjarmasin','Barito','Kutai','Balikpapan']	[]	[(364,445)]	[ADD_SEAS_HERE]	0	PIXELS:418	1	[]	0.0	0.0
 Taitung	Taiwan	221959	['Taichung','Taipei']	[]	[(426,98)]	[ADD_SEAS_HERE]	0	PIXELS:173	1	[]	0.0	0.0
 Bulungan	Kalimantan	178598	['Sintang','Sarawak Interior','Miri','Tarakan','Bontang','Balikpapan','Kutai']	[]	[(357,393)]	[ADD_SEAS_HERE]	0	PIXELS:1045	1	[]	1.0	0.0
