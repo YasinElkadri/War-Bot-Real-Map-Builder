@@ -1,2 +1,0 @@
-aaaa dsad			['Dimapur','Mandalay','Taunggyi','Pai','Chiang Mai','Naypyidaw','Kayah','Lashio','Kachin','Hkamti','Imphal','Mizoram','Chin','Sainyabuli','Phongsaly','Keng Tung']
-aaaaa aaa			['Dimapur','Mandalay','Naypyidaw','Chin','Chittagong','Mizoram','Rakhine','Pyay','Pathein','Kayah','Taunggyi','Lashio','Kachin','Hkamti','Imphal','Sylhet','Tripura','Noakhali','Dhaka','Khulna','Rangpur','Guwahati','Nagaon','Itanagar','Dibang','Putao','Tinsukia']
