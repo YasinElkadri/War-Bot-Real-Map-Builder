@@ -3,9 +3,11 @@ public Territory findTerritory(String name) {
   for (Territory t : territories) {
  
     if (t.name.equals(name)) { return t; }
+  
   }
-
+  
   println("HUGE ERROR! COULD NOT FIND", name);
+  
   return null;
 
 }
