@@ -29,6 +29,7 @@ public void menu_createTerritory(GButton source, GEvent event) { //_CODE_:menu1:
   create16.setText("");
   create17.setText("");
   create_coordinateList.setText("none");
+  redrawMap();
 } //_CODE_:menu1:494671:
 
 public void menu_editTerritory(GButton source, GEvent event) { //_CODE_:menu2:795523:
@@ -37,12 +38,12 @@ public void menu_editTerritory(GButton source, GEvent event) { //_CODE_:menu2:79
   
   
   
-   territoryBackup.clear();
+   backupList.clear();
   
   ArrayList<ArrayList<Integer>> backupNeighbourValues = new ArrayList<>();
   
   for (Territory territory : territories) {
-    territoryBackup.add(territory.copyWithoutNeighbours());
+    backupList.add(territory.copyWithoutNeighbours());
     ArrayList<Integer> backupValuesThisTerritory = new ArrayList<>(); 
     for (Territory s : territory.neighbours) {
       for (int i = 0; i < territories.size(); i++) { if (s.name == territories.get(i).name) { backupValuesThisTerritory.add(i); break; } }
@@ -50,9 +51,9 @@ public void menu_editTerritory(GButton source, GEvent event) { //_CODE_:menu2:79
     backupNeighbourValues.add(backupValuesThisTerritory);
   }
   
-  for (int i = 0; i < territoryBackup.size(); i++) {
+  for (int i = 0; i < backupList.size(); i++) {
   
-    for (int z : backupNeighbourValues.get(i)) territoryBackup.get(i).neighbours.add(territoryBackup.get(z));
+    for (int z : backupNeighbourValues.get(i)) backupList.get(i).neighbours.add(backupList.get(z));
     
   }
   
@@ -87,12 +88,12 @@ public void menu_registerNeighbours(GButton source, GEvent event) { //_CODE_:men
   //im gonna kill everybody 
   //I HATE PROGRAMMING AAAAAAAAAAAAAAAA
   
-   territoryBackup.clear();
+   backupList.clear();
   
   ArrayList<ArrayList<Integer>> backupNeighbourValues = new ArrayList<>();
   
   for (Territory territory : territories) {
-    territoryBackup.add(territory.copyWithoutNeighbours());
+    backupList.add(territory.copyWithoutNeighbours());
     ArrayList<Integer> backupValuesThisTerritory = new ArrayList<>(); 
     for (Territory s : territory.neighbours) {
       for (int i = 0; i < territories.size(); i++) { if (s.name == territories.get(i).name) { backupValuesThisTerritory.add(i); break; } }
@@ -100,9 +101,9 @@ public void menu_registerNeighbours(GButton source, GEvent event) { //_CODE_:men
     backupNeighbourValues.add(backupValuesThisTerritory);
   }
   
-  for (int i = 0; i < territoryBackup.size(); i++) {
+  for (int i = 0; i < backupList.size(); i++) {
   
-    for (int z : backupNeighbourValues.get(i)) territoryBackup.get(i).neighbours.add(territoryBackup.get(z));
+    for (int z : backupNeighbourValues.get(i)) backupList.get(i).neighbours.add(backupList.get(z));
     
   }
   
@@ -135,6 +136,41 @@ public void menu_paintAll(GButton source, GEvent event) { //_CODE_:menu4:617171:
   }
 } //_CODE_:menu4:617171:
 
+public void menu_createNation(GButton source, GEvent event) { //_CODE_:menu5:984100:
+
+  natCreate.setVisible(true);
+  menu.setVisible(false);
+  currNat = new Nation();
+  natCreate1.setText("");
+  redrawNationMap();
+
+} //_CODE_:menu5:984100:
+
+public void menu_editNation(GButton source, GEvent event) { //_CODE_:menu6:718391:
+
+  natEdit.setVisible(true);
+  menu.setVisible(false);
+  if (nations.size() < 1) return;
+  currNat = nations.get(0);
+  redrawNationMap();
+  natEdit1.setText(currNat.name);
+  
+  ArrayList<String> nationNames = new ArrayList<>();
+  for (Nation n : nations) nationNames.add(n.name);
+  String[] nationList = new String[nationNames.size()];
+  nationList = nationNames.toArray(nationList);
+  natEdit_natDropdown.setItems(nationList, 0);
+  
+} //_CODE_:menu6:718391:
+
+public void menu_createFormable(GButton source, GEvent event) { //_CODE_:menu7:776227:
+  println("button2 - GButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:menu7:776227:
+
+public void menu_editFormable(GButton source, GEvent event) { //_CODE_:menu8:355996:
+  println("button3 - GButton >> GEvent." + event + " @ " + millis());
+} //_CODE_:menu8:355996:
+
 synchronized public void win_draw2(PApplet appc, GWinData data) { //_CODE_:create:390304:
   appc.background(230);
 } //_CODE_:create:390304:
@@ -163,28 +199,11 @@ public void create_terrainChanged(GDropList source, GEvent event) { //_CODE_:cre
 
 public void create_save(GButton source, GEvent event) { //_CODE_:create12:494261:
   lastButton = "None";
-  ArrayList<String> stringsToSave = new ArrayList<String>();
   territories.add(currTerr);
   currTerr = null;
   menu.setVisible(true);
   create.setVisible(false);
-  for (Territory territory : territories) {
-    String s = "";
-     s += territory.name + "\t" + territory.nation + "\t" + territory.population + "\t[";
-    for (Territory neighbouring : territory.neighbours) s += "'" + neighbouring.name + "',";
-    if (territory.neighbours.size() > 0) s = s.substring(0, s.length() - 1);
-    s += "]\t[]\t[";
-    for (PVector pix : territory.coordinates) s += "(" + int(pix.x) + "," + int(pix.y) + "),";
-    if (territory.coordinates.size() > 0) s = s.substring(0, s.length() - 1);
-    int area = 0;
-    for (PVector pix : territory.coordinates) area += getFloodPixels(pix).size();
-    s += "]\t[ADD_SEAS_HERE]\t0\tPIXELS:" + area + "\t" + territory.terrain + "\t[]\t" + territory.coal + "\t" + territory.oil;
-    stringsToSave.add(s);
-  }
-  
-  String[] stringsToSaveArray = new String[stringsToSave.size()];
-  stringsToSaveArray = stringsToSave.toArray(stringsToSaveArray);
-  saveStrings("Territories.txt", stringsToSaveArray);
+  saveToText();
   mapImage = blankImage.copy();
   shouldRedraw = true;
 } //_CODE_:create12:494261:
@@ -232,27 +251,10 @@ public void neighbour_territorySelected(GDropList source, GEvent event) { //_COD
 
 public void neighbour_save(GButton source, GEvent event) { //_CODE_:neighbour6:961379:
   lastButton = "None";
-  ArrayList<String> stringsToSave = new ArrayList<String>();
   currTerr = null;
   menu.setVisible(true);
   neighbour.setVisible(false);
-  for (Territory territory : territories) {
-    String s = "";
-    s += territory.name + "\t" + territory.nation + "\t" + territory.population + "\t[";
-    for (Territory neighbouring : territory.neighbours) s += "'" + neighbouring.name + "',";
-    if (territory.neighbours.size() > 0) s = s.substring(0, s.length() - 1);
-    s += "]\t[]\t[";
-    for (PVector pix : territory.coordinates) s += "(" + int(pix.x) + "," + int(pix.y) + "),";
-    if (territory.coordinates.size() > 0) s = s.substring(0, s.length() - 1);
-    int area = 0;
-    for (PVector pix : territory.coordinates) area += getFloodPixels(pix).size();
-    s += "]\t[ADD_SEAS_HERE]\t0\tPIXELS:" + area + "\t" + territory.terrain + "\t[]\t" + territory.coal + "\t" + territory.oil;
-    stringsToSave.add(s);
-  }
-  
-  String[] stringsToSaveArray = new String[stringsToSave.size()];
-  stringsToSaveArray = stringsToSave.toArray(stringsToSaveArray);
-  saveStrings("Territories.txt", stringsToSaveArray);
+  saveToText();
   mapImage = blankImage.copy();
   shouldRedraw = true;
 } //_CODE_:neighbour6:961379:
@@ -260,7 +262,7 @@ public void neighbour_save(GButton source, GEvent event) { //_CODE_:neighbour6:9
 public void neighbour_cancel(GButton source, GEvent event) { //_CODE_:neighbour7:845164:
   lastButton = "None";
   territories.clear();
-  territories = (ArrayList)territoryBackup.clone();
+  territories = (ArrayList)backupList.clone();
   currTerr = null;
   menu.setVisible(true);
   neighbour.setVisible(false);
@@ -306,27 +308,10 @@ public void edit_terrainChanged(GDropList source, GEvent event) { //_CODE_:edit7
 } //_CODE_:edit7:416596:
 
 public void edit_save(GButton source, GEvent event) { //_CODE_:edit14:539957:
-  ArrayList<String> stringsToSave = new ArrayList<String>();
   currTerr = null;
   menu.setVisible(true);
   edit.setVisible(false);
-  for (Territory territory : territories) {
-    String s = "";
-    s += territory.name + "\t" + territory.nation + "\t" + territory.population + "\t[";
-    for (Territory neighbouring : territory.neighbours) s += "'" + neighbouring.name + "',";
-    if (territory.neighbours.size() > 0) s = s.substring(0, s.length() - 1);
-    s += "]\t[]\t[";
-    for (PVector pix : territory.coordinates) s += "(" + int(pix.x) + "," + int(pix.y) + "),";
-    if (territory.coordinates.size() > 0) s = s.substring(0, s.length() - 1);
-    int area = 0;
-    for (PVector pix : territory.coordinates) area += getFloodPixels(pix).size();
-    s += "]\t[ADD_SEAS_HERE]\t0\tPIXELS:" + area + "\t" + territory.terrain + "\t[]\t" + territory.coal + "\t" + territory.oil;
-    stringsToSave.add(s);
-  }
-  
-  String[] stringsToSaveArray = new String[stringsToSave.size()];
-  stringsToSaveArray = stringsToSave.toArray(stringsToSaveArray);
-  saveStrings("Territories.txt", stringsToSaveArray);
+  saveToText();
   mapImage = blankImage.copy();
   shouldRedraw = true;
 } //_CODE_:edit14:539957:
@@ -334,13 +319,70 @@ public void edit_save(GButton source, GEvent event) { //_CODE_:edit14:539957:
 public void edit_cancel(GButton source, GEvent event) { //_CODE_:edit15:378981:
   lastButton = "None";
   territories.clear();
-  territories = (ArrayList)territoryBackup.clone();
+  territories = (ArrayList)backupList.clone();
   currTerr = null;
   menu.setVisible(true);
   edit.setVisible(false);
   mapImage = blankImage.copy();
   shouldRedraw = true;
 } //_CODE_:edit15:378981:
+
+synchronized public void win_draw5(PApplet appc, GWinData data) { //_CODE_:natCreate:858220:
+  appc.background(230);
+} //_CODE_:natCreate:858220:
+
+public void natCreate_changeName(GTextField source, GEvent event) { //_CODE_:natCreate1:948151:
+  currNat.name = source.getText();
+} //_CODE_:natCreate1:948151:
+
+public void natCreate_save(GButton source, GEvent event) { //_CODE_:natCreate2:860755:
+  nations.add(currNat);
+  currNat = null;
+  natCreate.setVisible(false);
+  menu.setVisible(true);
+  saveToText();
+  mapImage = blankImage.copy();
+  shouldRedraw = true;
+} //_CODE_:natCreate2:860755:
+
+public void natCreate_cancel(GButton source, GEvent event) { //_CODE_:natCreate3:469263:
+  currNat = null;
+  natCreate.setVisible(false);
+  menu.setVisible(true);
+  mapImage = blankImage.copy();
+  shouldRedraw = true;
+} //_CODE_:natCreate3:469263:
+
+synchronized public void win_draw6(PApplet appc, GWinData data) { //_CODE_:natEdit:245390:
+  appc.background(230);
+} //_CODE_:natEdit:245390:
+
+public void natEdit_changeName(GTextField source, GEvent event) { //_CODE_:natEdit1:275356:
+  currNat.name = source.getText();
+} //_CODE_:natEdit1:275356:
+
+public void natEdit_save(GButton source, GEvent event) { //_CODE_:natEdit2:593824:
+  currNat = null;
+  natEdit.setVisible(false);
+  menu.setVisible(true);
+  saveToText();
+  mapImage = blankImage.copy();
+  shouldRedraw = true;
+} //_CODE_:natEdit2:593824:
+
+public void natEdit_changeNation(GDropList source, GEvent event) { //_CODE_:natEdit_natDropdown:447628:
+  currNat = nations.get(natEdit_natDropdown.getSelectedIndex());
+  natEdit1.setText(currNat.name);
+  redrawNationMap();
+} //_CODE_:natEdit_natDropdown:447628:
+
+synchronized public void win_draw7(PApplet appc, GWinData data) { //_CODE_:formCreate:714961:
+  appc.background(230);
+} //_CODE_:formCreate:714961:
+
+synchronized public void win_draw8(PApplet appc, GWinData data) { //_CODE_:formEdit:652021:
+  appc.background(230);
+} //_CODE_:formEdit:652021:
 
 
 
@@ -351,26 +393,38 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  menu = GWindow.getWindow(this, "Main Menu", 0, 0, 240, 360, JAVA2D);
+  menu = GWindow.getWindow(this, "Main Menu", 0, 0, 480, 360, JAVA2D);
   menu.noLoop();
   menu.setActionOnClose(G4P.EXIT_APP);
   menu.addDrawHandler(this, "win_draw1");
-  menu0 = new GLabel(menu, 80, 10, 80, 30);
+  menu0 = new GLabel(menu, 200, 20, 80, 30);
   menu0.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   menu0.setText("MAIN MENU");
-  menu0.setOpaque(false);
-  menu1 = new GButton(menu, 80, 80, 80, 30);
+  menu0.setOpaque(true);
+  menu1 = new GButton(menu, 40, 80, 80, 30);
   menu1.setText("Create Territory");
   menu1.addEventHandler(this, "menu_createTerritory");
-  menu2 = new GButton(menu, 80, 150, 80, 30);
+  menu2 = new GButton(menu, 40, 150, 80, 30);
   menu2.setText("Edit Territory");
   menu2.addEventHandler(this, "menu_editTerritory");
-  menu3 = new GButton(menu, 80, 220, 80, 30);
+  menu3 = new GButton(menu, 40, 220, 80, 30);
   menu3.setText("Register Neighbours");
   menu3.addEventHandler(this, "menu_registerNeighbours");
-  menu4 = new GButton(menu, 80, 290, 80, 30);
+  menu4 = new GButton(menu, 360, 290, 80, 30);
   menu4.setText("Paint All");
   menu4.addEventHandler(this, "menu_paintAll");
+  menu5 = new GButton(menu, 200, 80, 80, 30);
+  menu5.setText("Create Nation");
+  menu5.addEventHandler(this, "menu_createNation");
+  menu6 = new GButton(menu, 200, 150, 80, 30);
+  menu6.setText("Edit Nation");
+  menu6.addEventHandler(this, "menu_editNation");
+  menu7 = new GButton(menu, 360, 80, 80, 30);
+  menu7.setText("Create Formable");
+  menu7.addEventHandler(this, "menu_createFormable");
+  menu8 = new GButton(menu, 360, 150, 80, 30);
+  menu8.setText("Edit Formable");
+  menu8.addEventHandler(this, "menu_editFormable");
   create = GWindow.getWindow(this, "Create Territory", 0, 0, 240, 600, JAVA2D);
   create.noLoop();
   create.setActionOnClose(G4P.EXIT_APP);
@@ -460,7 +514,7 @@ public void createGUI(){
   neighbour7.setText("Cancel");
   neighbour7.setLocalColorScheme(GCScheme.RED_SCHEME);
   neighbour7.addEventHandler(this, "neighbour_cancel");
-  edit = GWindow.getWindow(this, "Edit", 0, 0, 240, 600, JAVA2D);
+  edit = GWindow.getWindow(this, "Edit Territories", 0, 0, 240, 600, JAVA2D);
   edit.noLoop();
   edit.setActionOnClose(G4P.EXIT_APP);
   edit.addDrawHandler(this, "win_draw4");
@@ -522,10 +576,63 @@ public void createGUI(){
   edit15.setText("Cancel");
   edit15.setLocalColorScheme(GCScheme.RED_SCHEME);
   edit15.addEventHandler(this, "edit_cancel");
+  natCreate = GWindow.getWindow(this, "Create Nation", 0, 0, 240, 120, JAVA2D);
+  natCreate.noLoop();
+  natCreate.setActionOnClose(G4P.EXIT_APP);
+  natCreate.addDrawHandler(this, "win_draw5");
+  natCreate0 = new GLabel(natCreate, 20, 20, 80, 20);
+  natCreate0.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  natCreate0.setText("Name: ");
+  natCreate0.setOpaque(false);
+  natCreate1 = new GTextField(natCreate, 110, 20, 120, 15, G4P.SCROLLBARS_NONE);
+  natCreate1.setOpaque(true);
+  natCreate1.addEventHandler(this, "natCreate_changeName");
+  natCreate2 = new GButton(natCreate, 20, 70, 80, 30);
+  natCreate2.setText("Save");
+  natCreate2.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  natCreate2.addEventHandler(this, "natCreate_save");
+  natCreate3 = new GButton(natCreate, 140, 70, 80, 30);
+  natCreate3.setText("Cancel");
+  natCreate3.setLocalColorScheme(GCScheme.RED_SCHEME);
+  natCreate3.addEventHandler(this, "natCreate_cancel");
+  natEdit = GWindow.getWindow(this, "Edit Nations", 0, 0, 240, 120, JAVA2D);
+  natEdit.noLoop();
+  natEdit.setActionOnClose(G4P.EXIT_APP);
+  natEdit.addDrawHandler(this, "win_draw6");
+  natEdit0 = new GLabel(natEdit, 20, 40, 80, 20);
+  natEdit0.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  natEdit0.setText("Name:");
+  natEdit0.setOpaque(false);
+  natEdit1 = new GTextField(natEdit, 110, 40, 120, 15, G4P.SCROLLBARS_NONE);
+  natEdit1.setOpaque(true);
+  natEdit1.addEventHandler(this, "natEdit_changeName");
+  natEdit2 = new GButton(natEdit, 80, 70, 80, 30);
+  natEdit2.setText("Save");
+  natEdit2.setLocalColorScheme(GCScheme.GREEN_SCHEME);
+  natEdit2.addEventHandler(this, "natEdit_save");
+  label1 = new GLabel(natEdit, 20, 10, 80, 20);
+  label1.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label1.setText("Nation:");
+  label1.setOpaque(false);
+  natEdit_natDropdown = new GDropList(natEdit, 110, 10, 120, 80, 3, 10);
+  natEdit_natDropdown.setItems(loadStrings("list_447628"), 0);
+  natEdit_natDropdown.addEventHandler(this, "natEdit_changeNation");
+  formCreate = GWindow.getWindow(this, "Create Formable", 0, 0, 240, 120, JAVA2D);
+  formCreate.noLoop();
+  formCreate.setActionOnClose(G4P.EXIT_APP);
+  formCreate.addDrawHandler(this, "win_draw7");
+  formEdit = GWindow.getWindow(this, "Edit Formables", 0, 0, 240, 120, JAVA2D);
+  formEdit.noLoop();
+  formEdit.setActionOnClose(G4P.EXIT_APP);
+  formEdit.addDrawHandler(this, "win_draw8");
   menu.loop();
   create.loop();
   neighbour.loop();
   edit.loop();
+  natCreate.loop();
+  natEdit.loop();
+  formCreate.loop();
+  formEdit.loop();
 }
 
 // Variable declarations 
@@ -536,6 +643,10 @@ GButton menu1;
 GButton menu2; 
 GButton menu3; 
 GButton menu4; 
+GButton menu5; 
+GButton menu6; 
+GButton menu7; 
+GButton menu8; 
 GWindow create;
 GLabel create0; 
 GTextField create1; 
@@ -577,3 +688,16 @@ GLabel edit12;
 GLabel edit_coordinateList; 
 GButton edit14; 
 GButton edit15; 
+GWindow natCreate;
+GLabel natCreate0; 
+GTextField natCreate1; 
+GButton natCreate2; 
+GButton natCreate3; 
+GWindow natEdit;
+GLabel natEdit0; 
+GTextField natEdit1; 
+GButton natEdit2; 
+GLabel label1; 
+GDropList natEdit_natDropdown; 
+GWindow formCreate;
+GWindow formEdit;

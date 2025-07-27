@@ -25,7 +25,27 @@ public void redrawMap() {
   shouldRedraw = true;
 }
 
+public void redrawNationMap() {
+  mapImage = blankImage.copy();
+  for (Territory terr : currNat.territories) {
+    for (PVector pix : terr.coordinates) {
+      ArrayList<PVector> flood = getFloodPixels(pix);
+      fill(mapImage, flood, color(255, 0, 0));
+    }
+  }
+  shouldRedraw = true;
+}
 
+public void redrawFormableMap() {
+  mapImage = blankImage.copy();
+  for (Territory terr : currForm.territories) {
+    for (PVector pix : terr.coordinates) {
+      ArrayList<PVector> flood = getFloodPixels(pix);
+      fill(mapImage, flood, color(255, 0, 0));
+    }
+  }
+  shouldRedraw = true;
+}
 
 // not my code
 public ArrayList<PVector> getFloodPixels(PVector startPixel) { 
@@ -97,155 +117,6 @@ public void fill(PImage image, ArrayList<PVector> pix, color colour) {
       image.pixels[y * w + x] = colour;
     }
   }
-
-  image.updatePixels();
-}
-
-
-void mousePressed() {
-  int x = mouseX; 
-  int y = mouseY;
-  
-
-  if (mouseButton == LEFT && create.isVisible()) {
-    currTerr.coordinates.add(new PVector(x, y));
-
-    redrawMap();
-
-    String currentText = "";
-    for (PVector pix : currTerr.coordinates) currentText += "\n" + int(pix.x) + ", " + int(pix.y);
-    create_coordinateList.setText(currentText);
-  }
-  
-  else if (mouseButton == RIGHT && create.isVisible()) {
-
-    ArrayList<PVector> flood1 = getFloodPixels( new PVector(x, y));
-    ArrayList<PVector> rmL = new ArrayList<PVector>();
-    for (PVector pix : currTerr.coordinates) {
-      if (containsPVector(flood1, pix)) rmL.add(pix);
-    }
-
-    for (PVector rm : rmL) currTerr.coordinates.remove(rm);
-    
-    redrawMap();
-
-    String currentText = "";
-    for (PVector pix : currTerr.coordinates) currentText += "\n" + int(pix.x) + ", " + int(pix.y);
-    create_coordinateList.setText(currentText);
-  }
-  else if (mouseButton == LEFT && edit.isVisible()) {
-    currTerr.coordinates.add(new PVector(x, y));
-    redrawMap();
-
-    String currentText = "";
-    for (PVector pix : currTerr.coordinates) currentText += "\n" + int(pix.x) + ", " + int(pix.y);
-    edit_coordinateList.setText(currentText);
-  }
-  
-  else if (mouseButton == RIGHT && edit.isVisible()) {
-    ArrayList<PVector> flood1 = getFloodPixels( new PVector(x, y));
-    ArrayList<PVector> rmL = new ArrayList<PVector>();
-    for (PVector pix : currTerr.coordinates) {
-      if (containsPVector(flood1, pix)) rmL.add(pix);
-    }
-    for (PVector rm : rmL) currTerr.coordinates.remove(rm);
-    
-      redrawMap();
-
-    String currentText = "";
-    for (PVector pix : currTerr.coordinates) currentText += "\n" + int(pix.x) + ", " + int(pix.y);
-    edit_coordinateList.setText(currentText);
-  }
-
-  else if (mouseButton == LEFT && neighbour.isVisible()) {
-    mapImage = blankImage.copy();
-    ArrayList<PVector> floodPixels = getFloodPixels(new PVector(x, y));
-    Territory t = findTerritory(floodPixels);
-    if (t == null) return;
-    if (t.name.equals(currTerr.name)) return;
-    for (Territory neighbouring : currTerr.neighbours) if (neighbouring.name.equals(t.name)) return;
-    currTerr.neighbours.add(t);
-    t.neighbours.add(currTerr);
-
-    redrawMap();
-
-    String currentText = "";
-    for (Territory terr : currTerr.neighbours) currentText += "\n" + terr.name;
-    neighbourList.setText(currentText);
-  }
-  
-  
-  
-  else if (mouseButton == CENTER && neighbour.isVisible()) {
-    mapImage = blankImage.copy();
-    ArrayList<PVector> floodPixels = getFloodPixels(new PVector(x, y));
-    Territory t = findTerritory(floodPixels);
-    if (t == null) return;
-    if (t.name.equals(currTerr.name)) return;
-    currTerr = t;
-
-   redrawMap();
-
-    String currentText = "";
-    for (Territory terr : currTerr.neighbours) currentText += "\n" + terr.name;
-    neighbourList.setText(currentText);
-   neighbour1.setSelected(territories.indexOf(currTerr));
-  }
-  
-  
-    else if (mouseButton == RIGHT && neighbour.isVisible()) {
-      
-      mapImage = blankImage.copy();
-      ArrayList<PVector> floodPixels = getFloodPixels(new PVector(x, y));
-      Territory t = findTerritory(floodPixels);
-
-      if (t == null) return;
-      if (t.name.equals(currTerr.name)) return;
-      boolean found = false;
-      for (Territory neighbouring : currTerr.neighbours) {
-          if (neighbouring.name.equals(t.name)) {
-              print(neighbouring.name, t.name);
-              found = true;
-              break;
-          }
-      }
-      if (!found) {
-          return;
-      }      
-      currTerr.neighbours.remove(t);
-      t.neighbours.remove(currTerr);
-      
-       redrawMap();
-
-    String currentText = "";
-    for (Territory terr : currTerr.neighbours) currentText += "\n" + terr.name;
-    neighbourList.setText(currentText);
-  }
-  
-  
-  
-  
-  else if (mouseButton == CENTER && edit.isVisible()) {
-    mapImage = blankImage.copy();
-    ArrayList<PVector> floodPixels = getFloodPixels(new PVector(x, y));
-    Territory t = findTerritory(floodPixels);
-    if (t == null) return;
-    if (t.name.equals(currTerr.name)) return;
-    currTerr = t;
-    
-    redrawMap();
-
-    
-    String currentText = "";
-    for (PVector pix : currTerr.coordinates) currentText += "\n" + int(pix.x) + ", " + int(pix.y);
-    edit_coordinateList.setText(currentText);
-    edit1.setText(currTerr.name);
-    edit3.setText(currTerr.nation);
-    edit5.setText(str(currTerr.population));
-    edit7.setSelected(currTerr.terrain - 1);
-    edit9.setText(str(currTerr.coal));
-    edit11.setText(str(currTerr.oil));
-  }
 }
 
 
@@ -267,4 +138,65 @@ Territory findTerritory(ArrayList<PVector> flooded) {
     }
   }
   return null;
+}
+
+void saveToText() {
+  ArrayList<String> stringsToSave = new ArrayList<String>();
+  for (Territory territory : territories) {
+    String s = "";
+    s += territory.name + "\t" + territory.nation + "\t" + territory.population + "\t[";
+    for (Territory neighbouring : territory.neighbours) s += "'" + neighbouring.name + "',";
+    if (territory.neighbours.size() > 0) s = s.substring(0, s.length() - 1);
+    s += "]\t[]\t[";
+    for (PVector pix : territory.coordinates) s += "(" + int(pix.x) + "," + int(pix.y) + "),";
+    if (territory.coordinates.size() > 0) s = s.substring(0, s.length() - 1);
+    int area = 0;
+    for (PVector pix : territory.coordinates) area += getFloodPixels(pix).size();
+    s += "]\t[ADD_SEAS_HERE]\t0\tPIXELS:" + area + "\t" + territory.terrain + "\t[]\t" + territory.coal + "\t" + territory.oil;
+    stringsToSave.add(s);
+  }
+  
+  String[] stringsToSaveArray = new String[stringsToSave.size()];
+  stringsToSaveArray = stringsToSave.toArray(stringsToSaveArray);
+  saveStrings("Territories.txt", stringsToSaveArray);
+  
+  
+  ArrayList<String> stringsToSaveNat = new ArrayList<>();
+  
+  for (Nation n : nations) {
+    String s = n.name + "\tNone\t10000\t60\t{}\tNon-Aligned\t0\tFLAG_EMOJI\t20\t200\tDENONYM\tCOLOR\tCAPITAL";
+    stringsToSaveNat.add(s);
+  }
+  
+  String[] stringsToSaveArrayNat = new String[stringsToSaveNat.size()];
+  stringsToSaveArrayNat = stringsToSaveNat.toArray(stringsToSaveArrayNat);
+  saveStrings("Nations.txt", stringsToSaveArrayNat);
+  
+
+  
+  
+  ArrayList<String> stringsToSaveForm = new ArrayList<>();
+
+  for (Formable f : formables) {
+    String s = f.name + "\t\t\t[";
+    for (Territory t : f.territories) s += "\'" + t.name + "\',";
+    if (f.territories.size() > 0) s.substring(0, s.length() - 1);
+    s += "]";
+    stringsToSaveForm.add(s);
+  }
+
+  String[] stringsToSaveArrayForm = new String[stringsToSaveForm.size()];
+  stringsToSaveArrayForm = stringsToSaveForm.toArray(stringsToSaveArrayForm);
+  saveStrings("Formables.txt", stringsToSaveArrayForm);
+  
+}
+
+void mousePressed() {
+  if (create.isVisible()) createTerrMapPressed();
+  else if (edit.isVisible()) editTerrMapPressed();
+  else if (neighbour.isVisible()) neighbourTerrMapPressed();
+  else if (natCreate.isVisible()) createNatMapPressed();
+  else if (natEdit.isVisible()) editNatMapPressed();
+  else if (formCreate.isVisible()) createFormMapPressed();
+  else if (formEdit.isVisible()) editFormMapPressed();
 }
