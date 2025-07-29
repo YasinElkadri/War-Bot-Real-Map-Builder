@@ -167,6 +167,7 @@ void createNatMapPressed() {
     Territory t = findTerritory(floodPixels);
     if (t == null) return;
     for (Territory terr : currNat.territories) if (terr.name.equals(t.name)) return;
+    for (Nation n : nations) if (n.territories.contains(t)) n.territories.remove(t);
     currNat.territories.add(t);
     t.nation = currNat.name;
 
@@ -206,6 +207,7 @@ void editNatMapPressed() {
     Territory t = findTerritory(floodPixels);
     if (t == null) return;
     for (Territory terr : currNat.territories) if (terr.name.equals(t.name)) return;
+    for (Nation n : nations) if (n.territories.contains(t)) n.territories.remove(t);
     currNat.territories.add(t);
     t.nation = currNat.name;
 

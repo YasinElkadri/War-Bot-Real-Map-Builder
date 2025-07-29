@@ -24,7 +24,6 @@ public void menu_createTerritory(GButton source, GEvent event) { //_CODE_:menu1:
   menu.setVisible(false);
   create.setVisible(true);
   create1.setText("");
-  create3.setText("");
   create5.setText("");
   create16.setText("");
   create17.setText("");
@@ -195,11 +194,6 @@ public void create_nameChanged(GTextField source, GEvent event) { //_CODE_:creat
   lastButton = "None";
 } //_CODE_:create1:218102:
 
-public void create_nationChanged(GTextField source, GEvent event) { //_CODE_:create3:506491:
-  currTerr.nation = source.getText();
-  lastButton = "None";
-} //_CODE_:create3:506491:
-
 public void create_populationChanged(GTextField source, GEvent event) { //_CODE_:create5:496908:
   try {
     currTerr.population = int(source.getText());
@@ -292,10 +286,6 @@ synchronized public void win_draw4(PApplet appc, GWinData data) { //_CODE_:edit:
 public void edit_nameChanged(GTextField source, GEvent event) { //_CODE_:edit1:414268:
     currTerr.name = (source.getText());
 } //_CODE_:edit1:414268:
-
-public void edit_nationChanged(GTextField source, GEvent event) { //_CODE_:edit3:685505:
-    currTerr.nation = (source.getText());
-} //_CODE_:edit3:685505:
 
 public void edit_populationChanged(GTextField source, GEvent event) { //_CODE_:edit5:459017:
   try {
@@ -513,9 +503,6 @@ public void createGUI(){
   create2.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   create2.setText("Nation:");
   create2.setOpaque(false);
-  create3 = new GTextField(create, 110, 50, 120, 15, G4P.SCROLLBARS_NONE);
-  create3.setOpaque(true);
-  create3.addEventHandler(this, "create_nationChanged");
   create4 = new GLabel(create, 20, 80, 80, 20);
   create4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   create4.setText("Population:");
@@ -560,6 +547,10 @@ public void createGUI(){
   create17 = new GTextField(create, 110, 170, 120, 15, G4P.SCROLLBARS_NONE);
   create17.setOpaque(true);
   create17.addEventHandler(this, "create_oilChanged");
+  label2 = new GLabel(create, 110, 50, 120, 20);
+  label2.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label2.setText("Under Construction!");
+  label2.setOpaque(false);
   neighbour = GWindow.getWindow(this, "Select Neighbours", 0, 0, 240, 600, JAVA2D);
   neighbour.noLoop();
   neighbour.setActionOnClose(G4P.EXIT_APP);
@@ -602,9 +593,6 @@ public void createGUI(){
   edit2.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   edit2.setText("Nation:");
   edit2.setOpaque(false);
-  edit3 = new GTextField(edit, 110, 50, 120, 15, G4P.SCROLLBARS_NONE);
-  edit3.setOpaque(true);
-  edit3.addEventHandler(this, "edit_nationChanged");
   edit4 = new GLabel(edit, 20, 80, 80, 20);
   edit4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   edit4.setText("Population: ");
@@ -649,6 +637,10 @@ public void createGUI(){
   edit15.setText("Cancel");
   edit15.setLocalColorScheme(GCScheme.RED_SCHEME);
   edit15.addEventHandler(this, "edit_cancel");
+  edit3 = new GLabel(edit, 110, 50, 120, 20);
+  edit3.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  edit3.setText("Under Construction!");
+  edit3.setOpaque(false);
   natCreate = GWindow.getWindow(this, "Create Nation", 0, 0, 240, 120, JAVA2D);
   natCreate.noLoop();
   natCreate.setActionOnClose(G4P.EXIT_APP);
@@ -757,7 +749,6 @@ GWindow create;
 GLabel create0; 
 GTextField create1; 
 GLabel create2; 
-GTextField create3; 
 GLabel create4; 
 GTextField create5; 
 GLabel create6; 
@@ -770,6 +761,7 @@ GLabel create15;
 GLabel create14; 
 GTextField create16; 
 GTextField create17; 
+GLabel label2; 
 GWindow neighbour;
 GDropList neighbour1; 
 GLabel neighbour0; 
@@ -781,7 +773,6 @@ GWindow edit;
 GLabel edit0; 
 GTextField edit1; 
 GLabel edit2; 
-GTextField edit3; 
 GLabel edit4; 
 GLabel edit6; 
 GLabel edit8; 
@@ -794,6 +785,7 @@ GLabel edit12;
 GLabel edit_coordinateList; 
 GButton edit14; 
 GButton edit15; 
+GLabel edit3; 
 GWindow natCreate;
 GLabel natCreate0; 
 GTextField natCreate1; 
