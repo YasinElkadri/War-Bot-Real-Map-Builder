@@ -4,7 +4,7 @@ A simple map builder for Kushagra Pant's ['War Bot Real'.](https://kushagra-pant
 The code isn't very elegant right now, and barely works, but I assure you, that will be fixed in a future update! (See: 'Never')
 
 ## Usage
-1. Find the map you'd like to use. This could be anything from a real geographical region, to a fantasy world. For an example of how it should look, see 'blank_map.png'.
+1. Find the map you'd like to use. This could be anything from a real geographical region, to a fantasy world. For an example of how it should look, see 'Examples/blank_map.png'.
 2. Run the program, and click 'Create Territory'. You can start with your first territory, filling in the information, like the name, nation it should start under, and other values. To register where the territory actually is on the map, left click on the region it occupies. You can also right click a region to remove a misclick or error.
 3. Once you're finished, click 'Save'. You can also click 'Cancel' if you've messed up, or 'Save' and then 'Edit Territory' to repair whatever error you've made.
 4. When editing territories, left clicking and right clicking still add or remove fill regions for that territory respectively, while middle clicking can be used to change which territory you're editing. Middle click on any region to automatically switch to it.
